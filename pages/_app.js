@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
+import Head from "next/head";
 
-export default () => {
-  const { Component, pageProps } = this.props;
+export default ({ Component, pageProps }) => {
   return (
     <Fragment>
       <Head>
@@ -32,16 +32,6 @@ export default () => {
         body {
           margin: 0;
           padding: 0;
-        }
-
-        .container {
-          background: #1e1b26;
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          margin: 0;
-          width: 100%;
-          color: #333;
         }
 
         h1,

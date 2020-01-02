@@ -10,6 +10,17 @@ const Home = props => (
     {props.results.map(movie => (
       <MovieCard key={movie.id} movie={movie} />
     ))}
+    <style jsx>{`
+      .container {
+        background: #1e1b26;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0;
+        width: 100%;
+        color: #333;
+      }
+    `}</style>
   </div>
 );
 

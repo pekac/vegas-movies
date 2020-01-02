@@ -5,21 +5,14 @@ import Store from "../store/store";
 const IMG_BASE_URL = "https://image.tmdb.org/t/p/w780/";
 
 export default class MovieCard extends Component {
-  state = {
-    isFav: false,
-    isSavedForLater: false
-  };
-
   toggleFav = () => {
     const { movie } = this.props;
-    this.state.isFav ? Store.removeFromFavs(movie) : Store.addToFavs(movie);
+    Store.updateFavs(movie);
   };
 
   toggleWatchLater = () => {
     const { movie } = this.props;
-    this.state.isSavedForLater
-      ? Store.removeFromWatchLater(movie)
-      : Store.addToWatchLater(movie);
+    Store.updateWatchLater(movie);
   };
 
   render() {

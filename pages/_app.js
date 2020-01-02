@@ -1,6 +1,8 @@
 import React, { Fragment } from "react";
 import Head from "next/head";
 
+import Navigation from "../components/navigation";
+
 export default ({ Component, pageProps }) => {
   return (
     <Fragment>
@@ -8,6 +10,7 @@ export default ({ Component, pageProps }) => {
         <title>Vegas Movies - Entertainment's finest</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Navigation />
       <Component {...pageProps} />
       <style jsx global>{`
         @import url(

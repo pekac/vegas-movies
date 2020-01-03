@@ -7,7 +7,7 @@ const IMG_BASE_URL = "https://image.tmdb.org/t/p/w780/";
 export default class MovieCard extends Component {
   toggleFav = () => Store.updateFavs(this.props.movie);
 
-  toggleWatchLater = () => Store.updateWatchLater(this.propsmovie);
+  toggleWatchLater = () => Store.updateWatchLater(this.props.movie);
 
   render() {
     const { movie } = this.props;

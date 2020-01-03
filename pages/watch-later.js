@@ -29,7 +29,6 @@ const WatchLater = ({ movies }) => (
 
 WatchLater.getInitialProps = () => {
   const movies = Store.getWatchLater();
-  console.log("movies", movies);
   return {
     movies
   };

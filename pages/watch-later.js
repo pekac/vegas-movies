@@ -1,12 +1,13 @@
 import React from "react";
 /* components */
 import MovieCard from "../components/movie-card";
-
+import NoResults from "../components/no-results";
 /* services */
 import Store from "../store/store";
 
 const WatchLater = ({ movies }) => (
   <div className="container">
+    {movies.length === 0 && <NoResults />}
     {movies.map(movie => (
       <MovieCard key={movie.id} movie={movie} />
     ))}
@@ -27,8 +28,10 @@ const WatchLater = ({ movies }) => (
 );
 
 WatchLater.getInitialProps = () => {
+  const movies = Store.getWatchLater();
+  console.log("movies", movies);
   return {
-    movies: Store.getWatchLater()
+    movies
   };
 };
 

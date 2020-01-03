@@ -16,6 +16,8 @@ const updateFavs = movie => {
 
 const removeFromFavs = index => store.favorites.splice(index, 1);
 
+const isFavorite = movie => findMovieIndexInList(store.favorites, movie) >= 0;
+
 const getWatchLater = () => store.watchLater;
 
 const updateWatchLater = movie => {
@@ -23,11 +25,9 @@ const updateWatchLater = movie => {
   if (index < 0) {
     store.watchLater.push(movie);
   } else {
-    removeFromWatchLater(index);
+    // notification
   }
 };
-
-const removeFromWatchLater = index => store.watchLater.splice(index, 1);
 
 const findMovieIndexInList = (list, movie) =>
   list.findIndex(m => m.id === movie.id);
@@ -35,6 +35,7 @@ const findMovieIndexInList = (list, movie) =>
 export default {
   getFavs,
   updateFavs,
+  isFavorite,
 
   getWatchLater,
   updateWatchLater

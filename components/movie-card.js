@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+/* components */
+import FavoriteBtn from "../components/favorite-btn";
 /* store */
 import Store from "../store/store";
 
@@ -9,13 +11,20 @@ export default class MovieCard extends Component {
 
   toggleWatchLater = () => Store.updateWatchLater(this.props.movie);
 
+  isFavorite = () => Store.isFavorite(this.props.movie);
+
   render() {
     const { movie } = this.props;
     return (
       <div>
         <div className="container">
           <div className="movie">
-            <div className="movie-img"></div>
+            <div className="movie-img">
+              <FavoriteBtn
+                onClick={this.toggleFav}
+                isActive={this.isFavorite()}
+              />
+            </div>
             <div className="movie-content">
               <h1 className="movie-title">{movie.original_title}</h1>
               <p className="release-date">Release date: {movie.release_date}</p>
@@ -27,11 +36,11 @@ export default class MovieCard extends Component {
               <div className="movie-actions">
                 <button className="watch-btn">
                   <h3>
-                    <i className="material-icons">&#xE037;</i>WATCH TRAILER
+                    <i className="material-icons">play_arrow</i>WATCH TRAILER
                   </h3>
                 </button>
                 <button className="save-btn" onClick={this.toggleWatchLater}>
-                  <i className="material-icons">&#xE161;</i>
+                  <i className="material-icons">save</i>
                 </button>
               </div>
             </div>

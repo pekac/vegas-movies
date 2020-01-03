@@ -17,8 +17,10 @@ const WatchLater = ({ movies }) => (
         flex-wrap: wrap;
         justify-content: center;
         margin: 0;
+        margin-top: 70px;
         width: 100%;
         color: #333;
+        min-height: 100vh;
       }
     `}</style>
   </div>

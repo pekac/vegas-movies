@@ -17,6 +17,7 @@ const Home = props => (
         flex-wrap: wrap;
         justify-content: center;
         margin: 0;
+        margin-top: 70px;
         width: 100%;
         color: #333;
       }

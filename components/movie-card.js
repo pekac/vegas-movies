@@ -5,15 +5,9 @@ import Store from "../store/store";
 const IMG_BASE_URL = "https://image.tmdb.org/t/p/w780/";
 
 export default class MovieCard extends Component {
-  toggleFav = () => {
-    const { movie } = this.props;
-    Store.updateFavs(movie);
-  };
+  toggleFav = () => Store.updateFavs(this.props.movie);
 
-  toggleWatchLater = () => {
-    const { movie } = this.props;
-    Store.updateWatchLater(movie);
-  };
+  toggleWatchLater = () => Store.updateWatchLater(this.propsmovie);
 
   render() {
     const { movie } = this.props;
@@ -62,7 +56,6 @@ export default class MovieCard extends Component {
               rgba(30, 27, 38, 0.88) 53%,
               #1e1b26 55%
             );
-            z-index: 1;
             width: 100%;
             min-width: 320px;
             height: 660px;
@@ -78,7 +71,6 @@ export default class MovieCard extends Component {
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            z-index: 111 !important;
             border-top-left-radius: 4px;
             border-top-right-radius: 4px;
             -webkit-mask-image: -webkit-gradient(

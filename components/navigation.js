@@ -4,10 +4,6 @@ import NavLink from "./navigation-link";
 
 const links = [
   {
-    name: "home",
-    path: "/"
-  },
-  {
     name: "favorites",
     path: "/favorites"
   },

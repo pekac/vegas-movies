@@ -39,7 +39,7 @@ export default () => (
       }
 
       .search-button {
-        width: 40px;
+        width: 46px;
         height: 40px;
         border: 1px solid #fe4141;
         background: #fe4141;
@@ -47,7 +47,10 @@ export default () => (
         color: #fff;
         border-radius: 0 5px 5px 0;
         cursor: pointer;
-        font-size: 20px;
+      }
+
+      .search-button i {
+        font-size: 36px;
       }
     `}</style>
   </div>

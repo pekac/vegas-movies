@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import App from "next/app";
 import Head from "next/head";
 /* components */
-import Navigation from "../components/navigation";
+import Header from "../components/header";
 /* utils */
 import { findMovieIndexInList } from "../common/utils";
 
@@ -49,7 +49,7 @@ export default class MyApp extends App {
           <title>Vegas Movies - Entertainment's finest</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <Navigation />
+        <Header />
         <Component
           {...pageProps}
           watchLater={watchLater}

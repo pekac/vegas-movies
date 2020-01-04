@@ -6,6 +6,7 @@ import PageWrapper from "../components/page-wrapper";
 
 const Home = ({ movies, favorites, updateFavs, updateWatchLater }) => (
   <PageWrapper>
+    {movies.length === 0 && <NoResults />}
     {movies.map(movie => (
       <MovieCard
         key={movie.id}

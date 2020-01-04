@@ -1,9 +1,11 @@
 import React from "react";
 /* components */
 import MovieCard from "../components/movie-card/";
+import NoResults from "../components/no-result/";
+import PageWrapper from "../components/page-wrapper";
 
 const Home = ({ movies, favorites, updateFavs, updateWatchLater }) => (
-  <div className="container">
+  <PageWrapper>
     {movies.map(movie => (
       <MovieCard
         key={movie.id}
@@ -13,19 +15,7 @@ const Home = ({ movies, favorites, updateFavs, updateWatchLater }) => (
         updateWatchLater={updateWatchLater}
       />
     ))}
-    <style jsx>{`
-      .container {
-        background: #1e1b26;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin: 0;
-        margin-top: 70px;
-        width: 100%;
-        color: #333;
-      }
-    `}</style>
-  </div>
+  </PageWrapper>
 );
 
 export default Home;

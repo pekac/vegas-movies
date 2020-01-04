@@ -1,13 +1,10 @@
 import React from "react";
 /* components */
-import MovieCard from "../components/movie-card";
+import MovieCard from "../components/movie-card/";
 
-/* services */
-import MovieService from "../services/movie-service";
-
-const Home = ({ results, favorites, updateFavs, updateWatchLater }) => (
+const Home = ({ movies, favorites, updateFavs, updateWatchLater }) => (
   <div className="container">
-    {results.map(movie => (
+    {movies.map(movie => (
       <MovieCard
         key={movie.id}
         movie={movie}
@@ -30,10 +27,5 @@ const Home = ({ results, favorites, updateFavs, updateWatchLater }) => (
     `}</style>
   </div>
 );
-
-Home.getInitialProps = async () => {
-  const props = await MovieService.getTopRatedMovies({ page: 1 });
-  return props;
-};
 
 export default Home;

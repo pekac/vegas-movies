@@ -1,12 +1,13 @@
 import React from "react";
 
-export default () => (
+export default ({ onSearch }) => (
   <div className="wrap">
     <div className="search">
       <input
         type="text"
         className="search-term"
         placeholder="What are you looking for?"
+        onChange={onSearch}
       />
       <button type="submit" className="search-button">
         <i className="material-icons">search</i>

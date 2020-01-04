@@ -5,12 +5,21 @@ import Head from "next/head";
 import Header from "../components/header/";
 /* utils */
 import { findMovieIndexInList } from "../common/utils";
+/* services */
+import MovieService from "../services/movie-service";
 
-export default class MyApp extends App {
+class MyApp extends App {
   state = {
     favorites: [],
-    watchLater: []
+    watchLater: [],
+    movies: []
   };
+
+  componentDidMount() {
+    this.setState({
+      movies: this.props.movies
+    });
+  }
 
   updateFavs = movie => {
     const { favorites } = this.state;
@@ -40,18 +49,34 @@ export default class MyApp extends App {
     }
   };
 
+  debounce = null;
+  searchMovies = e => {
+    const query = e.target.value;
+
+    clearTimeout(this.debounce);
+
+    this.debounce = setTimeout(async () => {
+      const { results } = await MovieService.searchMovies({
+        query,
+        page: 1
+      });
+      this.setState({ movies: results });
+    }, 200);
+  };
+
   render() {
     const { Component, pageProps } = this.props;
-    const { favorites, watchLater } = this.state;
+    const { favorites, watchLater, movies } = this.state;
     return (
       <Fragment>
         <Head>
           <title>Vegas Movies - Entertainment's finest</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <Header />
+        <Header onSearch={this.searchMovies} />
         <Component
           {...pageProps}
+          movies={movies}
           watchLater={watchLater}
           favorites={favorites}
           updateWatchLater={this.updateWatchLater}
@@ -117,3 +142,12 @@ export default class MyApp extends App {
     );
   }
 }
+
+MyApp.getInitialProps = async () => {
+  const { results } = await MovieService.getTopRatedMovies({ page: 1 });
+  return {
+    movies: results
+  };
+};
+
+export default MyApp;

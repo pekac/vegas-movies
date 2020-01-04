@@ -4,10 +4,10 @@ import Logo from "../logo/";
 import SearchInput from "../search-input/";
 import Navigation from "../navigation/";
 
-export default () => (
+export default ({ onSearch }) => (
   <header className="header">
     <Logo />
-    <SearchInput />
+    <SearchInput onSearch={onSearch} />
     <Navigation />
     <style jsx>{`
       .header {

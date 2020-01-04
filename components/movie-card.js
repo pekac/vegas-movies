@@ -1,17 +1,16 @@
 import React, { Component } from "react";
 /* components */
 import FavoriteBtn from "../components/favorite-btn";
-/* store */
-import Store from "../store/store";
 
 const IMG_BASE_URL = "https://image.tmdb.org/t/p/w780/";
 
 export default class MovieCard extends Component {
-  toggleFav = () => Store.updateFavs(this.props.movie);
+  toggleFav = () => this.props.updateFavs(this.props.movie);
 
-  toggleWatchLater = () => Store.updateWatchLater(this.props.movie);
+  toggleWatchLater = () => this.props.updateWatchLater(this.props.movie);
 
-  isFavorite = () => Store.isFavorite(this.props.movie);
+  isFavorite = () =>
+    this.props.favorites.findIndex(m => m.id === this.props.movie.id) >= 0;
 
   render() {
     const { movie } = this.props;

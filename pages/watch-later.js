@@ -2,14 +2,12 @@ import React from "react";
 /* components */
 import MovieCard from "../components/movie-card";
 import NoResults from "../components/no-results";
-/* services */
-import Store from "../store/store";
 
-const WatchLater = ({ movies }) => (
+const WatchLater = ({ watchLater, favorites }) => (
   <div className="container">
-    {movies.length === 0 && <NoResults />}
-    {movies.map(movie => (
-      <MovieCard key={movie.id} movie={movie} />
+    {watchLater.length === 0 && <NoResults />}
+    {watchLater.map(movie => (
+      <MovieCard key={movie.id} movie={movie} favorites={favorites} />
     ))}
     <style jsx>{`
       .container {
@@ -26,12 +24,5 @@ const WatchLater = ({ movies }) => (
     `}</style>
   </div>
 );
-
-WatchLater.getInitialProps = () => {
-  const movies = Store.getWatchLater();
-  return {
-    movies
-  };
-};
 
 export default WatchLater;

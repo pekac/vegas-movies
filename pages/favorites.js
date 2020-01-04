@@ -3,14 +3,11 @@ import React from "react";
 import MovieCard from "../components/movie-card";
 import NoResults from "../components/no-results";
 
-/* services */
-import Store from "../store/store";
-
-const Favorites = ({ movies }) => (
+const Favorites = ({ favorites }) => (
   <div className="container">
-    {movies.length === 0 && <NoResults />}
-    {movies.map(movie => (
-      <MovieCard key={movie.id} movie={movie} />
+    {favorites.length === 0 && <NoResults />}
+    {favorites.map(movie => (
+      <MovieCard key={movie.id} movie={movie} favorites={favorites} />
     ))}
     <style jsx>{`
       .container {
@@ -27,11 +24,5 @@ const Favorites = ({ movies }) => (
     `}</style>
   </div>
 );
-
-Favorites.getInitialProps = () => {
-  return {
-    movies: Store.getFavs()
-  };
-};
 
 export default Favorites;

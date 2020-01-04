@@ -5,10 +5,16 @@ import MovieCard from "../components/movie-card";
 /* services */
 import MovieService from "../services/movie-service";
 
-const Home = props => (
+const Home = ({ results, favorites, updateFavs, updateWatchLater }) => (
   <div className="container">
-    {props.results.map(movie => (
-      <MovieCard key={movie.id} movie={movie} />
+    {results.map(movie => (
+      <MovieCard
+        key={movie.id}
+        movie={movie}
+        favorites={favorites}
+        updateFavs={updateFavs}
+        updateWatchLater={updateWatchLater}
+      />
     ))}
     <style jsx>{`
       .container {

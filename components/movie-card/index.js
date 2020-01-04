@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 /* components */
-import FavoriteBtn from "../components/favorite-btn";
+import FavoriteBtn from "../favorite-btn/";
 
 const IMG_BASE_URL = "https://image.tmdb.org/t/p/w780/";
 

@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import App from "next/app";
 import Head from "next/head";
 /* components */
-import Header from "../components/header";
+import Header from "../components/header/";
 /* utils */
 import { findMovieIndexInList } from "../common/utils";
 

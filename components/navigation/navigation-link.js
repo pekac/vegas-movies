@@ -14,6 +14,7 @@ const NavLink = ({ router, link }) => {
           color: #e7e7e7;
           font-family: "Montserrat", sans-serif;
           font-weight: 400;
+          font-size: 15px;
           margin: 0 20px;
           text-decoration: none;
           text-transform: uppercase;

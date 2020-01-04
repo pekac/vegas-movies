@@ -1,7 +1,7 @@
 import React from "react";
 /* components */
-import MovieCard from "../components/movie-card";
-import NoResults from "../components/no-results";
+import MovieCard from "../components/movie-card/";
+import NoResults from "../components/no-result/";
 
 const WatchLater = ({ watchLater, favorites }) => (
   <div className="container">

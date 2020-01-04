@@ -1,8 +1,8 @@
 import React from "react";
 /* components */
-import Logo from "./logo";
-import SearchInput from "./search-input";
-import Navigation from "./navigation";
+import Logo from "../logo/";
+import SearchInput from "../search-input/";
+import Navigation from "../navigation/";
 
 export default () => (
   <header className="header">

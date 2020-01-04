@@ -16,6 +16,7 @@ export default () => (
       .wrap {
         flex: 1;
       }
+
       .search {
         display: flex;
         margin: 0 20px;
@@ -26,7 +27,7 @@ export default () => (
         border: 3px solid #fe4141;
         border-right: none;
         padding: 5px;
-        height: 28px;
+        height: 24px;
         font-size: 16px;
         border-radius: 5px 0 0 5px;
         outline: none;
@@ -39,7 +40,7 @@ export default () => (
 
       .search-button {
         width: 40px;
-        height: 44px;
+        height: 40px;
         border: 1px solid #fe4141;
         background: #fe4141;
         text-align: center;

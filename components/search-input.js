@@ -13,9 +13,12 @@ export default () => (
       </button>
     </div>
     <style jsx>{`
+      .wrap {
+        flex: 1;
+      }
       .search {
         display: flex;
-        flex-basis: 100%;
+        margin: 0 20px;
       }
 
       .search-term {
@@ -24,6 +27,7 @@ export default () => (
         border-right: none;
         padding: 5px;
         height: 28px;
+        font-size: 16px;
         border-radius: 5px 0 0 5px;
         outline: none;
         color: #9dbfaf;

@@ -14,6 +14,7 @@ export default () => (
     <style jsx>{`
       .logo {
         height: 55px;
+        cursor: pointer;
       }
     `}</style>
   </div>

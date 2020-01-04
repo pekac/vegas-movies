@@ -55,13 +55,23 @@ class MyApp extends App {
 
     clearTimeout(this.debounce);
 
-    this.debounce = setTimeout(async () => {
-      const { results } = await MovieService.searchMovies({
-        query,
-        page: 1
-      });
-      this.setState({ movies: results });
+    this.debounce = setTimeout(() => {
+      this.getMovies(query);
     }, 200);
+  };
+
+  getMovies = async (query = "") => {
+    if (query === "") {
+      const { results } = await MovieService.getTopRatedMovies({ page: 1 });
+      this.setState({ movies: results });
+      return;
+    }
+
+    const { results } = await MovieService.searchMovies({
+      query,
+      page: 1
+    });
+    this.setState({ movies: results });
   };
 
   render() {

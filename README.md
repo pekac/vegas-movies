@@ -18,3 +18,8 @@ $ npm install
 # Starts the app on http://localhost:3000/
 $ npm run dev
 ```
+
+## Demo
+Check it out here: https://vegas-movies.now.sh/
+
+![](demo.gif)

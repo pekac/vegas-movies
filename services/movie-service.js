@@ -1,7 +1,7 @@
 import fetch from "isomorphic-unfetch";
 
+const API_KEY = process.env.API_KEY;
 const BASE_URL = "https://api.themoviedb.org/3";
-const API_KEY = "86587b6bca657caa380766ce8dc8906b";
 
 const getTopRatedMovies = async ({ page = 1 }) => {
   const res = await fetch(

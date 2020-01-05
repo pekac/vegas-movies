@@ -47,7 +47,15 @@ class MyApp extends App {
     if (index < 0) {
       watchLater.push(movie);
       this.setState({ watchLater });
+    } else {
+      this.removeFromWatchLater(index);
     }
+  };
+
+  removeFromWatchLater = index => {
+    const { watchLater } = this.state;
+    watchLater.splice(index, 1);
+    this.setState({ watchLater });
   };
 
   debounce = null;

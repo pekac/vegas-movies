@@ -14,7 +14,6 @@ export default ({ trailer, closePopup }) => {
         src={`https://www.youtube.com/embed/${trailer.key}`}
         frameBorder="0"
       />
-
       <style jsx>{`
         .popup-container {
           position: fixed;

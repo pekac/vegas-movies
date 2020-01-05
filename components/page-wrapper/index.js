@@ -10,7 +10,8 @@ export default ({ children }) => (
         flex-wrap: wrap;
         justify-content: center;
         margin: 0;
-        margin-top: 70px;
+        padding-top: 70px;
+        padding-bottom: 70px;
         width: 100%;
         color: #333;
         min-height: 100vh;

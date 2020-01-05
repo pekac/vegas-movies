@@ -23,6 +23,12 @@ export default ({ onSearch }) => (
         margin: 0 20px;
       }
 
+      @media (max-width: 767px) {
+        .search {
+          margin: 0 10px;
+        }
+      }
+
       .search-term {
         width: 100%;
         border: 3px solid #fe4141;

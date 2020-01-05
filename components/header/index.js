@@ -8,7 +8,9 @@ export default ({ onSearch }) => (
   <header className="header">
     <Logo />
     <SearchInput onSearch={onSearch} />
-    <Navigation />
+    <div className="nav-wrapper">
+      <Navigation />
+    </div>
     <style jsx>{`
       .header {
         position: fixed;
@@ -22,6 +24,12 @@ export default ({ onSearch }) => (
         justify-content: space-between;
         align-items: center;
         z-index: 5;
+      }
+
+      @media (max-width: 519px) {
+        .nav-wrapper {
+          display: none;
+        }
       }
     `}</style>
   </header>

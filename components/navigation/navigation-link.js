@@ -19,12 +19,24 @@ const NavLink = ({ router, link }) => {
           text-decoration: none;
           text-transform: uppercase;
         }
+
         .nav-link.active {
           background-color: #e7e7e7;
           color: #1e1b26;
           padding: 8px 16px;
           font-weight: bold;
           border-radius: 4px;
+        }
+
+        @media (max-width: 767px) {
+          .nav-link {
+            font-size: 13px;
+            margin: 0 10px;
+          }
+
+          .nav-link.active {
+            padding: 8px 12px;
+          }
         }
       `}</style>
     </div>

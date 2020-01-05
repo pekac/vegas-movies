@@ -16,6 +16,12 @@ export default () => (
         height: 55px;
         cursor: pointer;
       }
+
+      @media (max-width: 767px) {
+        .logo {
+          height: 45px;
+        }
+      }
     `}</style>
   </div>
 );

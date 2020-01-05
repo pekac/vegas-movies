@@ -3,6 +3,7 @@ import App from "next/app";
 import Head from "next/head";
 /* components */
 import Header from "../components/header/";
+import Footer from "../components/footer/";
 /* utils */
 import { findMovieIndexInList } from "../common/utils";
 /* services */
@@ -92,6 +93,7 @@ class MyApp extends App {
           updateWatchLater={this.updateWatchLater}
           updateFavs={this.updateFavs}
         />
+        <Footer />
         <style jsx global>{`
           @import url(
             https://fonts.googleapis.com/css?family=Montserrat:400,

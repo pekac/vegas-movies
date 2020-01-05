@@ -13,6 +13,7 @@ export default ({ trailer, closePopup }) => {
         height="390"
         src={`https://www.youtube.com/embed/${trailer.key}`}
         frameBorder="0"
+        allowFullScreen
       />
       <style jsx>{`
         .popup-container {

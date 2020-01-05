@@ -56,13 +56,18 @@ export default class MovieCard extends Component {
         </div>
         <style jsx>{`
           .container {
-            width: 100%;
-            min-width: 320px;
+            width: 375px;
             max-width: 375px;
             height: 660px;
             background-color: #1e1b26;
             box-shadow: 5px 5px 115px -14px black;
             border-radius: 4px;
+          }
+
+          @media (max-width: 375px) {
+            .container {
+              width: 100%;
+            }
           }
 
           .movie {

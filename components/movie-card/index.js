@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 /* components */
 import FavoriteBtn from "../favorite-btn/";
+import WatchLaterBtn from "../watch-later-btn/";
+/* utils */
+import { findMovieIndexInList } from "../../common/utils";
 
 const IMG_BASE_URL = "https://image.tmdb.org/t/p/w780/";
 
@@ -10,7 +13,10 @@ export default class MovieCard extends Component {
   toggleWatchLater = () => this.props.updateWatchLater(this.props.movie);
 
   isFavorite = () =>
-    this.props.favorites.findIndex(m => m.id === this.props.movie.id) >= 0;
+    findMovieIndexInList(this.props.favorites, this.props.movie) >= 0;
+
+  isSavedForLater = () =>
+    findMovieIndexInList(this.props.watchLater, this.props.movie) >= 0;
 
   render() {
     const { movie } = this.props;
@@ -38,9 +44,10 @@ export default class MovieCard extends Component {
                     <i className="material-icons">play_arrow</i>WATCH TRAILER
                   </h3>
                 </button>
-                <button className="save-btn" onClick={this.toggleWatchLater}>
-                  <i className="material-icons">save</i>
-                </button>
+                <WatchLaterBtn
+                  toggleWatchLater={this.toggleWatchLater}
+                  isActive={this.isSavedForLater()}
+                />
               </div>
             </div>
           </div>
@@ -162,16 +169,6 @@ export default class MovieCard extends Component {
 
           .action-row {
             margin-top: 24px;
-          }
-
-          .save-btn {
-            text-align: right;
-          }
-
-          .save-btn i {
-            color: #fe4141;
-            font-size: 28px;
-            text-align: right;
           }
 
           .watch-btn {

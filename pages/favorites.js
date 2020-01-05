@@ -4,7 +4,13 @@ import PageWrapper from "../components/page-wrapper/";
 import MovieCard from "../components/movie-card/";
 import NoResults from "../components/no-result/";
 
-const Favorites = ({ favorites, watchLater, showTrailer }) => (
+const Favorites = ({
+  favorites,
+  watchLater,
+  showTrailer,
+  updateFavs,
+  updateWatchLater
+}) => (
   <PageWrapper>
     {favorites.length === 0 && <NoResults />}
     {favorites.map(movie => (
@@ -14,6 +20,8 @@ const Favorites = ({ favorites, watchLater, showTrailer }) => (
         favorites={favorites}
         watchLater={watchLater}
         showTrailer={showTrailer}
+        updateFavs={updateFavs}
+        updateWatchLater={updateWatchLater}
       />
     ))}
   </PageWrapper>

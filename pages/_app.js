@@ -5,10 +5,8 @@ import Head from "next/head";
 import Header from "../components/header/";
 import Footer from "../components/footer/";
 import TrailerPopup from "../components/trailer-popup/";
-/* utils */
-import { findMovieIndexInList } from "../common/utils";
-/* services */
-import MovieService from "../services/movie-service";
+/* management */
+import MovieManagement from "../model/movie-management";
 
 class MyApp extends App {
   state = {
@@ -18,43 +16,18 @@ class MyApp extends App {
     trailer: null
   };
 
-  componentDidMount() {
-    this.setState({
-      movies: this.props.movies
-    });
+  async componentDidMount() {
+    const movies = await MovieManagement.getMovies();
+    this.setState({ movies });
   }
 
   updateFavs = movie => {
-    const { favorites } = this.state;
-    const index = findMovieIndexInList(favorites, movie);
-    if (index < 0) {
-      favorites.push(movie);
-      this.setState({ favorites });
-    } else {
-      this.removeFromFavs(index);
-    }
-  };
-
-  removeFromFavs = index => {
-    const { favorites } = this.state;
-    favorites.splice(index, 1);
+    const favorites = MovieManagement.updateList(this.state.favorites, movie);
     this.setState({ favorites });
   };
 
   updateWatchLater = movie => {
-    const { watchLater } = this.state;
-    const index = findMovieIndexInList(watchLater, movie);
-    if (index < 0) {
-      watchLater.push(movie);
-      this.setState({ watchLater });
-    } else {
-      this.removeFromWatchLater(index);
-    }
-  };
-
-  removeFromWatchLater = index => {
-    const { watchLater } = this.state;
-    watchLater.splice(index, 1);
+    const watchLater = MovieManagement.updateList(this.state.watchLater, movie);
     this.setState({ watchLater });
   };
 
@@ -64,34 +37,15 @@ class MyApp extends App {
 
     clearTimeout(this.debounce);
 
-    this.debounce = setTimeout(() => {
-      this.getMovies(query);
+    this.debounce = setTimeout(async () => {
+      const movies = await MovieManagement.getMovies(query);
+      this.setState({ movies });
     }, 200);
   };
 
-  getMovies = async (query = "") => {
-    if (query === "") {
-      const { results } = await MovieService.getTopRatedMovies({ page: 1 });
-      this.setState({ movies: results });
-      return;
-    }
-
-    const { results } = await MovieService.searchMovies({
-      query,
-      page: 1
-    });
-    this.setState({ movies: results });
-  };
-
   getTrailerForMovie = async movie => {
-    const { results } = await MovieService.getVideoForMovie({
-      movieId: movie.id
-    });
-    if (results.length > 0) {
-      this.setState({
-        trailer: results[0]
-      });
-    }
+    const trailer = await MovieManagement.getTrailerForMovie(movie);
+    this.setState({ trailer });
   };
 
   closeTrailer = () => this.setState({ trailer: null });
@@ -177,12 +131,5 @@ class MyApp extends App {
     );
   }
 }
-
-MyApp.getInitialProps = async () => {
-  const { results } = await MovieService.getTopRatedMovies({ page: 1 });
-  return {
-    movies: results
-  };
-};
 
 export default MyApp;

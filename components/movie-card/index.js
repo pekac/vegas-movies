@@ -18,6 +18,8 @@ export default class MovieCard extends Component {
   isSavedForLater = () =>
     findMovieIndexInList(this.props.watchLater, this.props.movie) >= 0;
 
+  showTrailer = () => this.props.showTrailer(this.props.movie);
+
   render() {
     const { movie } = this.props;
     return (
@@ -39,7 +41,7 @@ export default class MovieCard extends Component {
               </div>
               <p className="movie-description">{movie.overview}</p>
               <div className="movie-actions">
-                <button className="watch-btn">
+                <button className="watch-btn" onClick={this.showTrailer}>
                   <h3>
                     <i className="material-icons">play_arrow</i>WATCH TRAILER
                   </h3>

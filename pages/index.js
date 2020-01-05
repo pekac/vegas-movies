@@ -9,7 +9,8 @@ const Home = ({
   favorites,
   watchLater,
   updateFavs,
-  updateWatchLater
+  updateWatchLater,
+  showTrailer
 }) => (
   <PageWrapper>
     {movies.length === 0 && <NoResults />}
@@ -21,6 +22,7 @@ const Home = ({
         watchLater={watchLater}
         updateFavs={updateFavs}
         updateWatchLater={updateWatchLater}
+        showTrailer={showTrailer}
       />
     ))}
   </PageWrapper>

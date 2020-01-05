@@ -4,6 +4,7 @@ import Head from "next/head";
 /* components */
 import Header from "../components/header/";
 import Footer from "../components/footer/";
+import TrailerPopup from "../components/trailer-popup/";
 /* utils */
 import { findMovieIndexInList } from "../common/utils";
 /* services */
@@ -13,7 +14,8 @@ class MyApp extends App {
   state = {
     favorites: [],
     watchLater: [],
-    movies: []
+    movies: [],
+    trailer: null
   };
 
   componentDidMount() {
@@ -45,8 +47,6 @@ class MyApp extends App {
     if (index < 0) {
       watchLater.push(movie);
       this.setState({ watchLater });
-    } else {
-      // notification
     }
   };
 
@@ -75,9 +75,22 @@ class MyApp extends App {
     this.setState({ movies: results });
   };
 
+  getTrailerForMovie = async movie => {
+    const { results } = await MovieService.getVideoForMovie({
+      movieId: movie.id
+    });
+    if (results.length > 0) {
+      this.setState({
+        trailer: results[0]
+      });
+    }
+  };
+
+  closeTrailer = () => this.setState({ trailer: null });
+
   render() {
     const { Component, pageProps } = this.props;
-    const { favorites, watchLater, movies } = this.state;
+    const { favorites, watchLater, movies, trailer } = this.state;
     return (
       <Fragment>
         <Head>
@@ -85,6 +98,7 @@ class MyApp extends App {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <Header onSearch={this.searchMovies} />
+        <TrailerPopup trailer={trailer} closePopup={this.closeTrailer} />
         <Component
           {...pageProps}
           movies={movies}
@@ -92,6 +106,7 @@ class MyApp extends App {
           favorites={favorites}
           updateWatchLater={this.updateWatchLater}
           updateFavs={this.updateFavs}
+          showTrailer={this.getTrailerForMovie}
         />
         <Footer />
         <style jsx global>{`

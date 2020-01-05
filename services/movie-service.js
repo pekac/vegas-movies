@@ -19,7 +19,16 @@ const searchMovies = async ({ query = "", page = 1 }) => {
   return data;
 };
 
+const getVideoForMovie = async ({ movieId = 1 }) => {
+  const res = await fetch(
+    `${BASE_URL}/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`
+  );
+  const data = await res.json();
+  return data;
+};
+
 export default {
   getTopRatedMovies,
-  searchMovies
+  searchMovies,
+  getVideoForMovie
 };

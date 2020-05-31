@@ -1,30 +1,31 @@
 import React from "react";
 /* components */
-import PageWrapper from "../components/page-wrapper/";
 import MovieCard from "../components/movie-card/";
 import NoResults from "../components/no-result/";
+import PageWrapper from "../components/page-wrapper";
 
-const Favorites = ({
+const Home = ({
+  movies,
   favorites,
   watchLater,
-  showTrailer,
   updateFavs,
-  updateWatchLater
+  updateWatchLater,
+  showTrailer,
 }) => (
   <PageWrapper>
-    {favorites.length === 0 && <NoResults />}
-    {favorites.map(movie => (
+    {movies.length === 0 && <NoResults />}
+    {movies.map((movie) => (
       <MovieCard
         key={movie.id}
         movie={movie}
         favorites={favorites}
         watchLater={watchLater}
-        showTrailer={showTrailer}
         updateFavs={updateFavs}
         updateWatchLater={updateWatchLater}
+        showTrailer={showTrailer}
       />
     ))}
   </PageWrapper>
 );
 
-export default Favorites;
+export default Home;

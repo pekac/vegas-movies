@@ -13,7 +13,7 @@ class MyApp extends App {
     favorites: [],
     watchLater: [],
     movies: [],
-    trailer: null
+    trailer: null,
   };
 
   async componentDidMount() {
@@ -21,18 +21,18 @@ class MyApp extends App {
     this.setState({ movies });
   }
 
-  updateFavs = movie => {
+  updateFavs = (movie) => {
     const favorites = MovieManagement.updateList(this.state.favorites, movie);
     this.setState({ favorites });
   };
 
-  updateWatchLater = movie => {
+  updateWatchLater = (movie) => {
     const watchLater = MovieManagement.updateList(this.state.watchLater, movie);
     this.setState({ watchLater });
   };
 
   debounce = null;
-  searchMovies = e => {
+  searchMovies = (e) => {
     const query = e.target.value;
 
     clearTimeout(this.debounce);
@@ -43,7 +43,7 @@ class MyApp extends App {
     }, 200);
   };
 
-  getTrailerForMovie = async movie => {
+  getTrailerForMovie = async (movie) => {
     const trailer = await MovieManagement.getTrailerForMovie(movie);
     this.setState({ trailer });
   };
@@ -77,7 +77,7 @@ class MyApp extends App {
             700
           );
           @import url(
-            https://fonts.googleapis.com/css?family=Open+Sans:400,
+            https://fonts.googleapis.com/css?family=Open + Sans:400,
             300,
             600,
             700,
@@ -88,7 +88,7 @@ class MyApp extends App {
             700italic,
             800italic
           );
-          @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+          @import url(https://fonts.googleapis.com/icon?family=Material + Icons);
 
           html,
           body {

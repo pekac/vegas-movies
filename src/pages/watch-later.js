@@ -9,11 +9,11 @@ const WatchLater = ({
   favorites,
   showTrailer,
   updateFavs,
-  updateWatchLater
+  updateWatchLater,
 }) => (
   <PageWrapper>
     {watchLater.length === 0 && <NoResults />}
-    {watchLater.map(movie => (
+    {watchLater.map((movie) => (
       <MovieCard
         key={movie.id}
         movie={movie}

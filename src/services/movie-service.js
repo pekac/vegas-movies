@@ -30,5 +30,5 @@ const getVideoForMovie = async ({ movieId = 1 }) => {
 export default {
   getTopRatedMovies,
   searchMovies,
-  getVideoForMovie
+  getVideoForMovie,
 };

@@ -26,14 +26,14 @@ const getMovies = async (query = "") => {
 
   const { results } = await MovieService.searchMovies({
     query,
-    page: 1
+    page: 1,
   });
   return results;
 };
 
-const getTrailerForMovie = async movie => {
+const getTrailerForMovie = async (movie) => {
   const { results } = await MovieService.getVideoForMovie({
-    movieId: movie.id
+    movieId: movie.id,
   });
   return results.length > 0 ? results[0] : null;
 };
@@ -42,5 +42,5 @@ export default {
   updateList,
   removeFromList,
   getMovies,
-  getTrailerForMovie
+  getTrailerForMovie,
 };

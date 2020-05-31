@@ -5,18 +5,18 @@ import NavLink from "./navigation-link";
 const links = [
   {
     name: "favorites",
-    path: "/favorites"
+    path: "/favorites",
   },
   {
     name: "watch later",
-    path: "/watch-later"
-  }
+    path: "/watch-later",
+  },
 ];
 
 export default () => (
   <div>
     <nav className="nav-menu">
-      {links.map(link => (
+      {links.map((link) => (
         <NavLink key={link.path} link={link} />
       ))}
     </nav>

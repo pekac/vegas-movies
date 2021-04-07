@@ -1,4 +1,4 @@
-export const links = [
+export const ROUTES = [
   {
     name: "favorites",
     path: "/favorites",

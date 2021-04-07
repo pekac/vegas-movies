@@ -6,16 +6,14 @@ import WatchLaterBtn from "@components/watch-later-btn";
 import { TrailerContext } from "@context/trailer";
 import { FavoritesContext } from "@context/favorites";
 
-import { findItemInList } from "@lib/utils";
-
 const IMG_BASE_URL = "https://image.tmdb.org/t/p/w780/";
 
 const MovieCard = ({ movie }) => {
   const { getTrailer } = useContext(TrailerContext);
-  const { favorites, update: updateFavs } = useContext(FavoritesContext);
+  const { update: updateFavs, isFavorite } = useContext(FavoritesContext);
 
   const toggleFavorite = () => updateFavs(movie);
-  const isFavorite = () => findItemInList(favorites, movie) >= 0;
+  // const isFav = () => isFavorite(movie);
 
   const toggleWatchLater = () => null; // this.props.updateWatchLater(this.props.movie);
   const isSavedForLater = () => null; // findMovieIndexInList(this.props.watchLater, this.props.movie) >= 0;
@@ -27,7 +25,10 @@ const MovieCard = ({ movie }) => {
       <div className="container">
         <div className="movie">
           <div className="movie-img">
-            <FavoriteBtn onClick={toggleFavorite} isActive={isFavorite()} />
+            <FavoriteBtn
+              onClick={toggleFavorite}
+              isActive={isFavorite(movie)}
+            />
           </div>
           <div className="movie-content">
             <h1 className="movie-title">{movie.original_title}</h1>

@@ -13,11 +13,14 @@ const FavoritesProvider = ({ children }) => {
     setFavorites(favorites);
   };
 
+  const isFavorite = (movie) => FavManagement.isInList(movie);
+
   return (
     <FavoritesContext.Provider
       value={{
         favorites,
         update,
+        isFavorite,
       }}
     >
       {children}

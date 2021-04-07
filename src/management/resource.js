@@ -1,4 +1,4 @@
-import { findItemInList } from "@lib/utils";
+import { findItemIndexInList } from "@lib/utils";
 
 export default class Resource {
   constructor(list) {
@@ -9,17 +9,21 @@ export default class Resource {
     return this.list;
   }
 
-  update = (movie) => {
-    const index = findItemInList(this.collection, movie);
-    if (index < 0) {
-      return this.add(movie);
+  getIndex = (item) => findItemIndexInList(this.collection, item);
+
+  isInList = (item) => this.getIndex(item) >= 0;
+
+  update = (item) => {
+    const index = this.getIndex(item);
+    if (index >= 0) {
+      return this.remove(index);
     }
 
-    return this.remove(index);
+    return this.add(item);
   };
 
-  add = (movie) => {
-    this.collection.push(movie);
+  add = (item) => {
+    this.collection.push(item);
     return this.collection;
   };
 

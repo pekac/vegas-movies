@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import MovieList from "@components/movie-card/list";
 import PageLayout from "@components/page-layout";
 
+import { FavoritesContext } from "@context/favorites";
+
 const FavoritesPage = () => {
-  return <MovieList movies={[]} />;
+  const { favorites } = useContext(FavoritesContext);
+  return <MovieList movies={favorites} />;
 };
 
 FavoritesPage.PageLayout = PageLayout;

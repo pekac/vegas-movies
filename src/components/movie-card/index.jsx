@@ -13,7 +13,6 @@ const MovieCard = ({ movie }) => {
   const { update: updateFavs, isFavorite } = useContext(FavoritesContext);
 
   const toggleFavorite = () => updateFavs(movie);
-  // const isFav = () => isFavorite(movie);
 
   const toggleWatchLater = () => null; // this.props.updateWatchLater(this.props.movie);
   const isSavedForLater = () => null; // findMovieIndexInList(this.props.watchLater, this.props.movie) >= 0;

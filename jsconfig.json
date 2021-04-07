@@ -4,7 +4,7 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@constants/*": ["src/constants/*"],
-      "@contexts/*": ["src/contexts/*"],
+      "@context/*": ["src/context/*"],
       "@lib/*": ["src/lib/*"],
       "@model/*": ["src/model/*"],
       "@pages/*": ["src/pages/*"],

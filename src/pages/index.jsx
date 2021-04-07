@@ -1,32 +1,20 @@
 import React from "react";
 
-import MovieCard from "@components/movie-card";
-import NoResults from "@components/no-result";
+import MovieList from "@components/movie-card/list";
 import PageLayout from "@components/page-layout";
 
-const IndexPage = ({
-  movies,
-  favorites,
-  watchLater,
-  updateFavs,
-  updateWatchLater,
-  showTrailer,
-}) => (
-  <>
-    {movies.length === 0 && <NoResults />}
-    {movies.map((movie) => (
-      <MovieCard
-        key={movie.id}
-        movie={movie}
-        favorites={favorites}
-        watchLater={watchLater}
-        updateFavs={updateFavs}
-        updateWatchLater={updateWatchLater}
-        showTrailer={showTrailer}
-      />
-    ))}
-  </>
-);
+import MovieManagement from "@model/movie-management";
+
+const IndexPage = ({ movies }) => <MovieList movies={movies} />;
+
+export async function getStaticProps() {
+  const movies = await MovieManagement.getMovies();
+  return {
+    props: {
+      movies,
+    },
+  };
+}
 
 IndexPage.PageLayout = PageLayout;
 

@@ -2,9 +2,9 @@ import React from "react";
 import App from "next/app";
 import Head from "next/head";
 
-import TrailerPopup from "../components/trailer-popup/";
-/* management */
 import MovieManagement from "../model/movie-management";
+
+import AppProviders from "@context/app";
 
 class MyApp extends App {
   state = {
@@ -13,11 +13,6 @@ class MyApp extends App {
     movies: [],
     trailer: null,
   };
-
-  async componentDidMount() {
-    // const movies = await MovieManagement.getMovies();
-    // this.setState({ movies });
-  }
 
   updateFavs = (movie) => {
     const favorites = MovieManagement.updateList(this.state.favorites, movie);
@@ -52,17 +47,19 @@ class MyApp extends App {
           <title>Vegas Movies - Entertainment's finest</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <Layout>
-          <Component
-            {...pageProps}
-            movies={movies}
-            watchLater={watchLater}
-            favorites={favorites}
-            updateWatchLater={this.updateWatchLater}
-            updateFavs={this.updateFavs}
-            showTrailer={this.getTrailerForMovie}
-          />
-        </Layout>
+        <AppProviders>
+          <Layout>
+            <Component
+              {...pageProps}
+              movies={movies}
+              watchLater={watchLater}
+              favorites={favorites}
+              updateWatchLater={this.updateWatchLater}
+              updateFavs={this.updateFavs}
+              showTrailer={this.getTrailerForMovie}
+            />
+          </Layout>
+        </AppProviders>
         <style jsx global>{`
           @import url(https://fonts.googleapis.com/css?family=Montserrat:400,
             700);

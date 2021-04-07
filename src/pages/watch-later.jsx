@@ -1,31 +1,11 @@
 import React from "react";
 
-import MovieCard from "@components/movie-card";
-import NoResults from "@components/no-result";
+import MovieList from "@components/movie-card/list";
 import PageLayout from "@components/page-layout";
 
-const WatchLaterPage = ({
-  watchLater,
-  favorites,
-  showTrailer,
-  updateFavs,
-  updateWatchLater,
-}) => (
-  <>
-    {watchLater.length === 0 && <NoResults />}
-    {watchLater.map((movie) => (
-      <MovieCard
-        key={movie.id}
-        movie={movie}
-        favorites={favorites}
-        watchLater={watchLater}
-        showTrailer={showTrailer}
-        updateFavs={updateFavs}
-        updateWatchLater={updateWatchLater}
-      />
-    ))}
-  </>
-);
+const WatchLaterPage = () => {
+  return <MovieList movies={[]} />;
+};
 
 WatchLaterPage.PageLayout = PageLayout;
 

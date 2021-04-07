@@ -49,21 +49,13 @@ class MyApp extends App {
         </Head>
         <AppProviders>
           <Layout>
-            <Component
-              {...pageProps}
-              movies={movies}
-              watchLater={watchLater}
-              favorites={favorites}
-              updateWatchLater={this.updateWatchLater}
-              updateFavs={this.updateFavs}
-              showTrailer={this.getTrailerForMovie}
-            />
+            <Component {...pageProps} />
           </Layout>
         </AppProviders>
         <style jsx global>{`
           @import url(https://fonts.googleapis.com/css?family=Montserrat:400,
             700);
-          @import url(https://fonts.googleapis.com/css?family=Open + Sans:400,
+          @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,
             300,
             600,
             700,
@@ -73,7 +65,7 @@ class MyApp extends App {
             600italic,
             700italic,
             800italic);
-          @import url(https://fonts.googleapis.com/icon?family=Material + Icons);
+          @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 
           html,
           body {

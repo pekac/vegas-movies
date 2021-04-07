@@ -8,17 +8,15 @@ import { findMovieIndexInList } from "@lib/utils";
 const IMG_BASE_URL = "https://image.tmdb.org/t/p/w780/";
 
 export default class MovieCard extends Component {
-  toggleFav = () => this.props.updateFavs(this.props.movie);
+  toggleFav = () => null; // this.props.updateFavs(this.props.movie);
 
-  toggleWatchLater = () => this.props.updateWatchLater(this.props.movie);
+  toggleWatchLater = () => null; // this.props.updateWatchLater(this.props.movie);
 
-  isFavorite = () =>
-    findMovieIndexInList(this.props.favorites, this.props.movie) >= 0;
+  isFavorite = () => null; // findMovieIndexInList(this.props.favorites, this.props.movie) >= 0;
 
-  isSavedForLater = () =>
-    findMovieIndexInList(this.props.watchLater, this.props.movie) >= 0;
+  isSavedForLater = () => null; // findMovieIndexInList(this.props.watchLater, this.props.movie) >= 0;
 
-  showTrailer = () => this.props.showTrailer(this.props.movie);
+  showTrailer = () => null; // this.props.showTrailer(this.props.movie);
 
   render() {
     const { movie } = this.props;

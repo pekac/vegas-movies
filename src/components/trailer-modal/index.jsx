@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 
-const TrailerModal = ({ trailer, closePopup }) => {
+import { TrailerContext } from "@context/trailer";
+
+const TrailerModal = () => {
+  const [trailer, closeTrailer] = useContext(TrailerContext);
+
   if (!trailer) {
     return null;
   }
 
   return (
-    <div className="popup-container" onClick={closePopup}>
+    <div className="popup-container" onClick={closeTrailer}>
       <iframe
         className="trailer"
         type="text/html"

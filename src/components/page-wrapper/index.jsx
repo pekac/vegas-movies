@@ -1,6 +1,6 @@
 import React from "react";
 
-export default ({ children }) => (
+const PageWrapper = ({ children }) => (
   <main className="container">
     {children}
     <style jsx>{`
@@ -19,3 +19,5 @@ export default ({ children }) => (
     `}</style>
   </main>
 );
+
+export default PageWrapper;

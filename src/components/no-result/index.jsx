@@ -1,7 +1,9 @@
 import React from "react";
 
-export default () => (
+const NoResults = () => (
   <div>
     <h1>Nothing here :(</h1>
   </div>
 );
+
+export default NoResults;

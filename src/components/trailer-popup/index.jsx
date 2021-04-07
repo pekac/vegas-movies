@@ -1,6 +1,6 @@
 import React from "react";
 
-export default ({ trailer, closePopup }) => {
+const TrailerModal = ({ trailer, closePopup }) => {
   if (!trailer) {
     return null;
   }
@@ -36,3 +36,5 @@ export default ({ trailer, closePopup }) => {
     </div>
   );
 };
+
+export default TrailerModal;

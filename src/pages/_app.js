@@ -3,7 +3,7 @@ import App from "next/app";
 import Head from "next/head";
 /* components */
 import Header from "../components/header/";
-import Footer from "../components/footer/";
+import Footer from "../components/footer-nav";
 import TrailerPopup from "../components/trailer-popup/";
 /* management */
 import MovieManagement from "../model/movie-management";
@@ -72,12 +72,9 @@ class MyApp extends App {
         />
         <Footer />
         <style jsx global>{`
-          @import url(
-            https://fonts.googleapis.com/css?family=Montserrat:400,
-            700
-          );
-          @import url(
-            https://fonts.googleapis.com/css?family=Open + Sans:400,
+          @import url(https://fonts.googleapis.com/css?family=Montserrat:400,
+            700);
+          @import url(https://fonts.googleapis.com/css?family=Open + Sans:400,
             300,
             600,
             700,
@@ -86,8 +83,7 @@ class MyApp extends App {
             400italic,
             600italic,
             700italic,
-            800italic
-          );
+            800italic);
           @import url(https://fonts.googleapis.com/icon?family=Material + Icons);
 
           html,

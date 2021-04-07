@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-export default () => (
+const Logo = () => (
   <div>
     <Link href="/">
       <img
@@ -16,7 +16,6 @@ export default () => (
         height: 55px;
         cursor: pointer;
       }
-
       @media (max-width: 767px) {
         .logo {
           height: 45px;
@@ -25,3 +24,5 @@ export default () => (
     `}</style>
   </div>
 );
+
+export default Logo;

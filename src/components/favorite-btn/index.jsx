@@ -1,6 +1,6 @@
 import React from "react";
 
-export default ({ isActive, onClick }) => (
+const FavoriteBtn = ({ isActive, onClick }) => (
   <button className="fav-btn" onClick={onClick}>
     {isActive ? (
       <i className="material-icons active">favorite</i>
@@ -11,7 +11,6 @@ export default ({ isActive, onClick }) => (
       .fav-btn {
         float: right;
       }
-
       .fav-btn i {
         color: #e7e7e7;
         font-size: 42px;
@@ -20,3 +19,5 @@ export default ({ isActive, onClick }) => (
     `}</style>
   </button>
 );
+
+export default FavoriteBtn;

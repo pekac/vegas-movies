@@ -1,8 +1,8 @@
 import React from "react";
 /* components */
-import Navigation from "../navigation/";
+import Navigation from "@components/navigation";
 
-export default () => (
+const FooterNav = () => (
   <footer className="footer">
     <Navigation />
     <style jsx>{`
@@ -20,7 +20,6 @@ export default () => (
         align-items: center;
         z-index: 5;
       }
-
       @media (min-width: 520px) {
         .footer {
           display: none;
@@ -29,3 +28,5 @@ export default () => (
     `}</style>
   </footer>
 );
+
+export default FooterNav;

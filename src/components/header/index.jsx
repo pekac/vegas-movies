@@ -1,10 +1,10 @@
 import React from "react";
-/* components */
-import Logo from "../logo/";
-import SearchInput from "../search-input/";
-import Navigation from "../navigation/";
 
-export default ({ onSearch }) => (
+import Logo from "@components/logo";
+import SearchInput from "@components/search-input";
+import Navigation from "@components/navigation";
+
+const Header = ({ onSearch }) => (
   <header className="header">
     <Logo />
     <SearchInput onSearch={onSearch} />
@@ -25,7 +25,6 @@ export default ({ onSearch }) => (
         align-items: center;
         z-index: 5;
       }
-
       @media (max-width: 519px) {
         .nav-wrapper {
           display: none;
@@ -34,3 +33,5 @@ export default ({ onSearch }) => (
     `}</style>
   </header>
 );
+
+export default Header;

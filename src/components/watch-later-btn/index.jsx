@@ -1,6 +1,6 @@
 import React from "react";
 
-export default ({ isActive, toggleWatchLater }) => (
+const WatchLaterBtn = ({ isActive, toggleWatchLater }) => (
   <div>
     <button className="save-btn" onClick={toggleWatchLater}>
       {isActive ? (
@@ -13,7 +13,6 @@ export default ({ isActive, toggleWatchLater }) => (
       .save-btn {
         text-align: right;
       }
-
       .save-btn i {
         color: #fe4141;
         font-size: 28px;
@@ -22,3 +21,5 @@ export default ({ isActive, toggleWatchLater }) => (
     `}</style>
   </div>
 );
+
+export default WatchLaterBtn;

@@ -1,5 +1,5 @@
 /* utils */
-import { findMovieIndexInList } from "../common/utils";
+import { findMovieIndexInList } from "@lib/utils";
 /* services */
 import MovieService from "../services/movie-service";
 

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default ({ onSearch }) => (
+const SearchInput = ({ onSearch }) => (
   <div className="wrap">
     <div className="search">
       <input
@@ -17,18 +17,15 @@ export default ({ onSearch }) => (
       .wrap {
         flex: 1;
       }
-
       .search {
         display: flex;
         margin: 0 20px;
       }
-
       @media (max-width: 767px) {
         .search {
           margin: 0 10px;
         }
       }
-
       .search-term {
         width: 100%;
         border: 3px solid #fe4141;
@@ -40,11 +37,9 @@ export default ({ onSearch }) => (
         outline: none;
         color: #9dbfaf;
       }
-
       .search-term:focus {
         color: #fe4141;
       }
-
       .search-button {
         width: 46px;
         height: 40px;
@@ -55,10 +50,11 @@ export default ({ onSearch }) => (
         border-radius: 0 5px 5px 0;
         cursor: pointer;
       }
-
       .search-button i {
         font-size: 36px;
       }
     `}</style>
   </div>
 );
+
+export default SearchInput;

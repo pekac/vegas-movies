@@ -1,9 +1,10 @@
 import React from "react";
-import Link from "next/link";
-import { withRouter } from "next/router";
+import Link, { useRouter } from "next/link";
 
-const NavLink = ({ router, link }) => {
+const NavLink = ({ link }) => {
+  const router = useRouter();
   const isActiveClass = router.pathname === link.path ? "active" : "";
+
   return (
     <div>
       <Link href={link.path}>
@@ -43,4 +44,4 @@ const NavLink = ({ router, link }) => {
   );
 };
 
-export default withRouter(NavLink);
+export default NavLink;

@@ -1,19 +1,8 @@
 import React from "react";
-/* components */
-import NavLink from "./navigation-link";
 
-const links = [
-  {
-    name: "favorites",
-    path: "/favorites",
-  },
-  {
-    name: "watch later",
-    path: "/watch-later",
-  },
-];
+import NavLink from "@components/navigation/link";
 
-export default () => (
+const Navigation = () => (
   <div>
     <nav className="nav-menu">
       {links.map((link) => (
@@ -27,3 +16,5 @@ export default () => (
     `}</style>
   </div>
 );
+
+export default Navigation;

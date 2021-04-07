@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-/* components */
-import FavoriteBtn from "../favorite-btn/";
-import WatchLaterBtn from "../watch-later-btn/";
-/* utils */
-import { findMovieIndexInList } from "../../common/utils";
+
+import FavoriteBtn from "@components/favorite-btn";
+import WatchLaterBtn from "@components/watch-later-btn";
+
+import { findMovieIndexInList } from "@lib/utils";
 
 const IMG_BASE_URL = "https://image.tmdb.org/t/p/w780/";
 
@@ -63,13 +63,11 @@ export default class MovieCard extends Component {
             box-shadow: 5px 5px 115px -14px black;
             border-radius: 4px;
           }
-
           @media (max-width: 375px) {
             .container {
               width: 100%;
             }
           }
-
           .movie {
             background: linear-gradient(
               to bottom,
@@ -84,7 +82,6 @@ export default class MovieCard extends Component {
             display: block;
             border-radius: 4px;
           }
-
           .movie-img {
             width: 100%;
             min-width: 320px;
@@ -108,11 +105,9 @@ export default class MovieCard extends Component {
             );
             position: relative;
           }
-
           .movie-content {
             padding: 0px 12px;
           }
-
           .release-date,
           .movie-grade {
             margin: 0px;
@@ -126,24 +121,20 @@ export default class MovieCard extends Component {
             margin-right: 6px;
             font-weight: 600;
           }
-
           .release-date {
             margin: 5px 0;
           }
-
           .movie-grade {
             float: right;
             color: #fe4141;
             font-size: 16px;
           }
-
           .movie-details {
             font-family: "Open Sans", sans-serif;
             font-size: 12px;
             font-weight: 300;
             color: #b4b4b4;
           }
-
           .movie-title {
             display: -webkit-box;
             -webkit-line-clamp: 2;
@@ -151,7 +142,6 @@ export default class MovieCard extends Component {
             overflow: hidden;
             text-overflow: ellipsis;
           }
-
           .movie-description {
             font-family: "Open Sans", sans-serif;
             font-size: 12px;
@@ -165,7 +155,6 @@ export default class MovieCard extends Component {
             overflow: hidden;
             text-overflow: ellipsis;
           }
-
           .movie-actions,
           .summary-row {
             display: flex;
@@ -173,11 +162,9 @@ export default class MovieCard extends Component {
             align-items: center;
             margin-top: 30px;
           }
-
           .action-row {
             margin-top: 24px;
           }
-
           .watch-btn {
             display: block;
             border: 1px solid #fe4141;
@@ -185,7 +172,6 @@ export default class MovieCard extends Component {
             padding: 4px 8px;
             width: 160px;
           }
-
           .watch-btn i {
             font-size: 14px;
             margin-right: 2px;

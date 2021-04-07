@@ -3,11 +3,12 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
+      "@constants/*": ["src/constants/*"],
+      "@contexts/*": ["src/contexts/*"],
       "@lib/*": ["src/lib/*"],
-      "@context/*": ["src/context/*"],
+      "@model/*": ["src/model/*"],
       "@pages/*": ["src/pages/*"],
       "@services/*": ["src/services/*"],
-      "@constants/*": ["src/constants/*"],
       "@/*": ["./*"]
     }
   }

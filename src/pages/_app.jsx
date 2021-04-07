@@ -41,13 +41,6 @@ class MyApp extends App {
     }, 200);
   };
 
-  getTrailerForMovie = async (movie) => {
-    const trailer = await MovieManagement.getTrailerForMovie(movie);
-    this.setState({ trailer });
-  };
-
-  closeTrailer = () => this.setState({ trailer: null });
-
   render() {
     const { Component, pageProps } = this.props;
     const { favorites, watchLater, movies, trailer } = this.state;
@@ -59,7 +52,6 @@ class MyApp extends App {
           <title>Vegas Movies - Entertainment's finest</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <TrailerPopup trailer={trailer} closePopup={this.closeTrailer} />
         <Layout>
           <Component
             {...pageProps}

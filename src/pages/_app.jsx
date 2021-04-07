@@ -1,9 +1,7 @@
-import React, { Fragment } from "react";
+import React from "react";
 import App from "next/app";
 import Head from "next/head";
-/* components */
-import Header from "../components/header/";
-import Footer from "../components/footer-nav";
+
 import TrailerPopup from "../components/trailer-popup/";
 /* management */
 import MovieManagement from "../model/movie-management";
@@ -17,8 +15,8 @@ class MyApp extends App {
   };
 
   async componentDidMount() {
-    const movies = await MovieManagement.getMovies();
-    this.setState({ movies });
+    // const movies = await MovieManagement.getMovies();
+    // this.setState({ movies });
   }
 
   updateFavs = (movie) => {
@@ -54,7 +52,7 @@ class MyApp extends App {
     const { Component, pageProps } = this.props;
     const { favorites, watchLater, movies, trailer } = this.state;
     const Layout = Component.PageLayout;
-    console.log("layout", Layout);
+
     return (
       <>
         <Head>

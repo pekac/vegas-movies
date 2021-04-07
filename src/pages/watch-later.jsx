@@ -29,4 +29,4 @@ const WatchLaterPage = ({
 
 WatchLaterPage.PageLayout = PageLayout;
 
-export default WatchLater;
+export default WatchLaterPage;

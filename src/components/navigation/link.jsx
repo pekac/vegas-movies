@@ -1,5 +1,6 @@
 import React from "react";
-import Link, { useRouter } from "next/link";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 const NavLink = ({ link }) => {
   const router = useRouter();

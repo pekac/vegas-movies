@@ -1,8 +1,8 @@
 import React from "react";
-/* components */
+
 import PageLayout from "@components/page-layout";
-import MovieCard from "../components/movie-card/";
-import NoResults from "../components/no-result/";
+import MovieCard from "@components/movie-card/";
+import NoResults from "@components/no-result/";
 
 const FavoritesPage = ({
   favorites,
@@ -29,4 +29,4 @@ const FavoritesPage = ({
 
 FavoritesPage.PageLayout = PageLayout;
 
-export default Favorites;
+export default FavoritesPage;

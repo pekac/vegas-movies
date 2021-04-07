@@ -2,10 +2,13 @@ import React from "react";
 
 import TrailerProvider from "./trailer";
 import FavoritesProvider from "./favorites";
+import WatchLaterProvider from "./watch-later";
 
 const AppProviders = ({ children }) => (
   <FavoritesProvider>
-    <TrailerProvider>{children}</TrailerProvider>
+    <WatchLaterProvider>
+      <TrailerProvider>{children}</TrailerProvider>
+    </WatchLaterProvider>
   </FavoritesProvider>
 );
 

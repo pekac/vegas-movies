@@ -53,24 +53,26 @@ class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     const { favorites, watchLater, movies, trailer } = this.state;
+    const Layout = Component.PageLayout;
+    console.log("layout", Layout);
     return (
-      <Fragment>
+      <>
         <Head>
           <title>Vegas Movies - Entertainment's finest</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <Header onSearch={this.searchMovies} />
         <TrailerPopup trailer={trailer} closePopup={this.closeTrailer} />
-        <Component
-          {...pageProps}
-          movies={movies}
-          watchLater={watchLater}
-          favorites={favorites}
-          updateWatchLater={this.updateWatchLater}
-          updateFavs={this.updateFavs}
-          showTrailer={this.getTrailerForMovie}
-        />
-        <Footer />
+        <Layout>
+          <Component
+            {...pageProps}
+            movies={movies}
+            watchLater={watchLater}
+            favorites={favorites}
+            updateWatchLater={this.updateWatchLater}
+            updateFavs={this.updateFavs}
+            showTrailer={this.getTrailerForMovie}
+          />
+        </Layout>
         <style jsx global>{`
           @import url(https://fonts.googleapis.com/css?family=Montserrat:400,
             700);
@@ -123,7 +125,7 @@ class MyApp extends App {
             cursor: pointer;
           }
         `}</style>
-      </Fragment>
+      </>
     );
   }
 }

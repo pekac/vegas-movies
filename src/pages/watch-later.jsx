@@ -1,19 +1,19 @@
 import React from "react";
-/* components */
-import PageWrapper from "../components/page-wrapper/";
-import MovieCard from "../components/movie-card/";
-import NoResults from "../components/no-result/";
 
-const Favorites = ({
-  favorites,
+import MovieCard from "@components/movie-card";
+import NoResults from "@components/no-result";
+import PageLayout from "@components/page-layout";
+
+const WatchLaterPage = ({
   watchLater,
+  favorites,
   showTrailer,
   updateFavs,
   updateWatchLater,
 }) => (
-  <PageWrapper>
-    {favorites.length === 0 && <NoResults />}
-    {favorites.map((movie) => (
+  <>
+    {watchLater.length === 0 && <NoResults />}
+    {watchLater.map((movie) => (
       <MovieCard
         key={movie.id}
         movie={movie}
@@ -24,7 +24,9 @@ const Favorites = ({
         updateWatchLater={updateWatchLater}
       />
     ))}
-  </PageWrapper>
+  </>
 );
 
-export default Favorites;
+WatchLaterPage.PageLayout = PageLayout;
+
+export default WatchLater;

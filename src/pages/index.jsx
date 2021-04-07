@@ -5,7 +5,7 @@ import PageLayout from "@components/page-layout";
 
 import { DAILY_IN_SECONDS as DAILY } from "@constants/periods";
 
-import MovieManagement from "@model/movie-management";
+import MovieManagement from "@management/movie-management";
 
 const IndexPage = ({ movies }) => <MovieList movies={movies} />;
 

@@ -2,43 +2,22 @@ import React from "react";
 import App from "next/app";
 import Head from "next/head";
 
-import MovieManagement from "../model/movie-management";
-
 import AppProviders from "@context/app";
 
 class MyApp extends App {
-  state = {
-    favorites: [],
-    watchLater: [],
-    movies: [],
-    trailer: null,
-  };
+  // debounce = null;
+  // searchMovies = (e) => {
+  //   const query = e.target.value;
 
-  updateFavs = (movie) => {
-    const favorites = MovieManagement.updateList(this.state.favorites, movie);
-    this.setState({ favorites });
-  };
+  //   clearTimeout(this.debounce);
 
-  updateWatchLater = (movie) => {
-    const watchLater = MovieManagement.updateList(this.state.watchLater, movie);
-    this.setState({ watchLater });
-  };
-
-  debounce = null;
-  searchMovies = (e) => {
-    const query = e.target.value;
-
-    clearTimeout(this.debounce);
-
-    this.debounce = setTimeout(async () => {
-      const movies = await MovieManagement.getMovies(query);
-      this.setState({ movies });
-    }, 200);
-  };
-
+  //   this.debounce = setTimeout(async () => {
+  //     const movies = await MovieManagement.getMovies(query);
+  //     this.setState({ movies });
+  //   }, 200);
+  // };
   render() {
     const { Component, pageProps } = this.props;
-    const { favorites, watchLater, movies, trailer } = this.state;
     const Layout = Component.PageLayout;
 
     return (

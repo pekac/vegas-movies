@@ -1,5 +1,3 @@
-/* utils */
-import { findItemInList } from "@lib/utils";
 /* services */
 import MovieService from "../services/movie-service";
 
@@ -24,8 +22,6 @@ const getTrailerForMovie = async (movie) => {
 };
 
 export default {
-  updateList,
-  removeFromList,
   getMovies,
   getTrailerForMovie,
 };

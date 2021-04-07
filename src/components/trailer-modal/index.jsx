@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { TrailerContext } from "@context/trailer";
 
 const TrailerModal = () => {
-  const [trailer, closeTrailer] = useContext(TrailerContext);
+  const { trailer, closeTrailer } = useContext(TrailerContext);
 
   if (!trailer) {
     return null;

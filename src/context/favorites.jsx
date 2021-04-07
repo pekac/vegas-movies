@@ -6,8 +6,7 @@ export const FavoritesContext = React.createContext(null);
 
 const FavoritesProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
-
-  const FavManagegement = new FavoritesManagement(favorites);
+  const FavManagement = new FavoritesManagement(favorites);
 
   const update = (movie) => {
     const favorites = FavManagement.update(movie);
@@ -21,7 +20,6 @@ const FavoritesProvider = ({ children }) => {
         update,
       }}
     >
-      <TrailerModal />
       {children}
     </FavoritesContext.Provider>
   );

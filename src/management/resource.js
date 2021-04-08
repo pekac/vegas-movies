@@ -1,17 +1,12 @@
 import { findItemIndexInList } from "@lib/utils";
 
 export default class Resource {
-  constructor(list, savedAttr) {
+  constructor(list) {
     this.list = list;
-    this.savedAttr = savedAttr;
   }
 
   get collection() {
     return this.list;
-  }
-
-  get attr() {
-    return this.savedAttr;
   }
 
   getIndex = (item) => findItemIndexInList(this.collection, item);
@@ -25,7 +20,7 @@ export default class Resource {
       return this.remove(index);
     }
 
-    return this.add({ ...item, [this.attr]: true });
+    return this.add(item);
   };
 
   add = (item) => {

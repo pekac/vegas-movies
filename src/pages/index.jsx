@@ -5,12 +5,12 @@ import PageLayout from "@components/page-layout";
 
 import { DAILY_IN_SECONDS as DAILY } from "@constants/periods";
 
-import MovieManagement from "@management/movie-management";
+import MovieService from "@services/movie-service";
 
 const IndexPage = ({ movies }) => <MovieList movies={movies} />;
 
 export async function getStaticProps() {
-  const movies = await MovieManagement.getMovies();
+  const movies = await MovieService.getTopRatedMovies({ page: 1 });
   return {
     props: {
       movies,

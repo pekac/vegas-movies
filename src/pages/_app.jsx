@@ -5,17 +5,6 @@ import Head from "next/head";
 import AppProviders from "@context/app";
 
 class MyApp extends App {
-  // debounce = null;
-  // searchMovies = (e) => {
-  //   const query = e.target.value;
-
-  //   clearTimeout(this.debounce);
-
-  //   this.debounce = setTimeout(async () => {
-  //     const movies = await MovieManagement.getMovies(query);
-  //     this.setState({ movies });
-  //   }, 200);
-  // };
   render() {
     const { Component, pageProps } = this.props;
     const Layout = Component.PageLayout;

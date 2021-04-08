@@ -2,7 +2,7 @@ import React from "react";
 
 import FavoriteBtn from "@components/favorite-btn";
 
-const IMG_BASE_URL = "https://image.tmdb.org/t/p/w780/";
+import { IMG_BASE_URL } from "@constants/api";
 
 const MoviePoster = ({ movie }) => (
   <>

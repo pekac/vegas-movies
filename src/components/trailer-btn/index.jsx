@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 
-const TrailerBtn = () => {
+import { TrailerContext } from "@context/trailer";
+
+const TrailerBtn = ({ movie }) => {
+  const { getTrailer } = useContext(TrailerContext);
+  const showTrailer = () => getTrailer(movie);
   return (
     <>
-      <button className="watch-btn" onClick={() => null}>
+      <button className="watch-btn" onClick={showTrailer}>
         <h3>
           <i className="material-icons">play_arrow</i>WATCH TRAILER
         </h3>

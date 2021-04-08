@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from "react";
 
 import MovieList from "@components/movie-card/list";
-import PageLayout from "@components/page-layout";
 
 import { MoviesContext } from "@context/movies";
 import { SearchContext } from "@context/search";
@@ -21,6 +20,7 @@ const IndexPage = ({ topMovies }) => {
 
   return <MovieList movies={movies} />;
 };
+
 export async function getStaticProps() {
   const topMovies = await MovieService.getTopRatedMovies({ page: 1 });
   return {
@@ -30,7 +30,5 @@ export async function getStaticProps() {
     },
   };
 }
-
-IndexPage.PageLayout = PageLayout;
 
 export default IndexPage;

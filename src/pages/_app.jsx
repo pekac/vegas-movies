@@ -2,13 +2,13 @@ import React from "react";
 import App from "next/app";
 import Head from "next/head";
 
+import PageLayout from "@components/page-layout";
+
 import AppProviders from "@context/app";
 
 class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
-    const Layout = Component.PageLayout;
-
     return (
       <>
         <Head>
@@ -16,9 +16,9 @@ class MyApp extends App {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <AppProviders>
-          <Layout>
+          <PageLayout>
             <Component {...pageProps} />
-          </Layout>
+          </PageLayout>
         </AppProviders>
         <style jsx global>{`
           @import url(https://fonts.googleapis.com/css?family=Montserrat:400,

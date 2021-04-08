@@ -2,6 +2,14 @@ import fetch from "isomorphic-unfetch";
 
 import { BASE_URL, API_KEY } from "@constants/api";
 
+const getMovies = ({ query = "", page = 1 }) => {
+  if (query.length === 0) {
+    return getTopRatedMovies({ page });
+  }
+
+  return searchMovies({ query, page });
+};
+
 const getTopRatedMovies = async ({ page = 1 }) => {
   const res = await fetch(
     `${BASE_URL}/movie/top_rated?api_key=${API_KEY}&language=en-US&page=${page}`
@@ -27,6 +35,7 @@ const getVideoForMovie = async ({ movieId = 1 }) => {
 };
 
 export default {
+  getMovies,
   getTopRatedMovies,
   searchMovies,
   getVideoForMovie,

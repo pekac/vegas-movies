@@ -1,17 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 
-import MovieService from "@services/movie-service";
+import { SearchContext } from "@context/search";
 
-const SearchInput = ({ onSearch }) => {
-  debounce = null;
-  searchMovies = (e) => {
+const SearchInput = () => {
+  const { setQuery } = useContext(SearchContext);
+
+  const onChange = (e) => {
     const query = e.target.value;
-
-    clearTimeout(this.debounce);
-
-    this.debounce = setTimeout(async () => {
-      const movies = await MovieService.searchMovies({ query, page: 1 });
-    }, 200);
+    setQuery(query);
   };
 
   return (
@@ -21,7 +17,7 @@ const SearchInput = ({ onSearch }) => {
           type="text"
           className="search-term"
           placeholder="What are you looking for?"
-          onChange={onSearch}
+          onChange={onChange}
         />
         <button type="submit" className="search-button">
           <i className="material-icons">search</i>

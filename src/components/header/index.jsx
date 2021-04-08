@@ -4,10 +4,10 @@ import Logo from "@components/logo";
 import SearchInput from "@components/search-input";
 import Navigation from "@components/navigation";
 
-const Header = ({ onSearch }) => (
+const Header = () => (
   <header className="header">
     <Logo />
-    <SearchInput onSearch={onSearch} />
+    <SearchInput />
     <div className="nav-wrapper">
       <Navigation />
     </div>

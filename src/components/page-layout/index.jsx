@@ -5,7 +5,7 @@ import FooterNav from "@components/footer-nav";
 
 const PageLayout = ({ children }) => (
   <>
-    <Header onSearch={() => null} />
+    <Header />
     <main className="container">
       {children}
       <style jsx>{`

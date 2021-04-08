@@ -1,4 +1,5 @@
 ## Movies browsing app
+
 Built with React, Next.js and https://www.themoviedb.org/ API.
 
 ## Installation
@@ -20,6 +21,7 @@ $ npm run dev
 ```
 
 ## Demo
-Check it out here: https://vegas-movies.now.sh/
+
+Check it out here: https://vegas-movies.vercel.app
 
 ![](demo.gif)

@@ -3,11 +3,11 @@ import React from "react";
 import WatchLaterBtn from "@components/watch-later-btn";
 import TrailerBtn from "@components/trailer-btn";
 
-const MovieActions = () => (
+const MovieActions = ({ movie }) => (
   <>
     <div className="movie-actions">
-      <TrailerBtn />
-      <WatchLaterBtn />
+      <TrailerBtn movie={movie} />
+      <WatchLaterBtn movie={movie} />
     </div>
 
     <style jsx>{`

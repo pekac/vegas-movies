@@ -4,10 +4,10 @@ import FavoriteBtn from "@components/favorite-btn";
 
 const IMG_BASE_URL = "https://image.tmdb.org/t/p/w780/";
 
-const MoviePoster = ({ imgSrc }) => (
+const MoviePoster = ({ movie }) => (
   <>
     <div className="movie-img">
-      <FavoriteBtn />
+      <FavoriteBtn movie={movie} />
     </div>
     <style jsx>
       {`
@@ -15,7 +15,7 @@ const MoviePoster = ({ imgSrc }) => (
           width: 100%;
           min-width: 320px;
           height: 380px;
-          background-image: url(${IMG_BASE_URL}${imgSrc});
+          background-image: url(${IMG_BASE_URL}${movie.poster_path});
           background-position: center;
           background-repeat: no-repeat;
           background-size: cover;

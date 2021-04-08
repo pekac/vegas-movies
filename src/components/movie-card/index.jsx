@@ -6,23 +6,9 @@ import MovieLayout from "./layout";
 import MoviePoster from "./poster";
 
 import { TrailerContext } from "@context/trailer";
-import { WatchLaterContext } from "@context/watch-later";
 
 const MovieCard = ({ movie }) => {
-  const [isSavedMovie, setIsSaved] = useState(false);
-
   const { getTrailer } = useContext(TrailerContext);
-
-  const { savedMovies, isSaved, update: updateSaved } = useContext(
-    WatchLaterContext
-  );
-
-  useEffect(() => {
-    const isSavedMovie = isSaved(movie);
-    setIsSaved(isSavedMovie);
-  }, [savedMovies]);
-
-  const toggleWatchLater = () => updateSaved(movie);
   const showTrailer = () => getTrailer(movie);
 
   return (

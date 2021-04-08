@@ -5,16 +5,14 @@ import { FavoritesContext } from "@context/favorites";
 const FavoriteBtn = ({ movie }) => {
   const [isActive, setIsActive] = useState(false);
 
-  const { favorites, isFavorite, update: updateFavs } = useContext(
-    FavoritesContext
-  );
+  const { favorites, isFavorite, update } = useContext(FavoritesContext);
 
   useEffect(() => {
     const isActive = isFavorite(movie);
     setIsActive(isActive);
   }, [favorites]);
 
-  const toggleFavorite = () => updateFavs(movie);
+  const toggleFavorite = () => update(movie);
 
   return (
     <button className="fav-btn" onClick={toggleFavorite}>

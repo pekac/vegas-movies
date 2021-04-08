@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import FavoriteBtn from "@components/favorite-btn";
 import WatchLaterBtn from "@components/watch-later-btn";
@@ -10,9 +10,26 @@ import { WatchLaterContext } from "@context/watch-later";
 const IMG_BASE_URL = "https://image.tmdb.org/t/p/w780/";
 
 const MovieCard = ({ movie }) => {
+  const [isFavMovie, setIsFav] = useState(false);
+  const [isSavedMovie, setIsSaved] = useState(false);
+
   const { getTrailer } = useContext(TrailerContext);
-  const { update: updateFavs, isFavorite } = useContext(FavoritesContext);
-  const { update: updateSaved, isSaved } = useContext(WatchLaterContext);
+  const { favorites, isFavorite, update: updateFavs } = useContext(
+    FavoritesContext
+  );
+  const { savedMovies, isSaved, update: updateSaved } = useContext(
+    WatchLaterContext
+  );
+
+  useEffect(() => {
+    const isFavMovie = isFavorite(movie);
+    setIsFav(isFavMovie);
+  }, [favorites]);
+
+  useEffect(() => {
+    const isSavedMovie = isSaved(movie);
+    setIsSaved(isSavedMovie);
+  }, [savedMovies]);
 
   const toggleFavorite = () => updateFavs(movie);
   const toggleWatchLater = () => updateSaved(movie);
@@ -23,10 +40,7 @@ const MovieCard = ({ movie }) => {
       <div className="container">
         <div className="movie">
           <div className="movie-img">
-            <FavoriteBtn
-              onClick={toggleFavorite}
-              isActive={isFavorite(movie)}
-            />
+            <FavoriteBtn onClick={toggleFavorite} isActive={isFavMovie} />
           </div>
           <div className="movie-content">
             <h1 className="movie-title">{movie.original_title}</h1>
@@ -44,7 +58,7 @@ const MovieCard = ({ movie }) => {
               </button>
               <WatchLaterBtn
                 toggleWatchLater={toggleWatchLater}
-                isActive={isSaved(movie)}
+                isActive={isSavedMovie}
               />
             </div>
           </div>

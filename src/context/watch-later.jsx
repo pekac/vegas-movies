@@ -10,7 +10,7 @@ const WatchLaterProvider = ({ children }) => {
 
   const update = (movie) => {
     const favorites = SavedManagement.update(movie);
-    setSavedMovies(favorites);
+    setSavedMovies([...favorites]);
   };
 
   const isSaved = (movie) => SavedManagement.isInList(movie);

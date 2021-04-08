@@ -10,7 +10,7 @@ const FavoritesProvider = ({ children }) => {
 
   const update = (movie) => {
     const favorites = FavManagement.update(movie);
-    setFavorites(favorites);
+    setFavorites([...favorites]);
   };
 
   const isFavorite = (movie) => FavManagement.isInList(movie);

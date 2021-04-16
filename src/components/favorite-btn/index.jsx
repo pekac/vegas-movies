@@ -1,16 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useMemo } from "react";
 
 import { FavoritesContext } from "@context/favorites";
 
 const FavoriteBtn = ({ movie }) => {
-  const [isActive, setIsActive] = useState(false);
-
   const { favorites, isFavorite, update } = useContext(FavoritesContext);
-
-  useEffect(() => {
-    const isActive = isFavorite(movie);
-    setIsActive(isActive);
-  }, [favorites]);
+  const isActive = useMemo(() => isFavorite(movie), [favorites]);
 
   const toggleFavorite = () => update(movie);
 

@@ -1,15 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useMemo } from "react";
 
 import { WatchLaterContext } from "@context/watch-later";
 
 const WatchLaterBtn = ({ movie }) => {
-  const [isActive, setIsActive] = useState(false);
   const { savedMovies, isSaved, update } = useContext(WatchLaterContext);
-
-  useEffect(() => {
-    const isActive = isSaved(movie);
-    setIsActive(isActive);
-  }, [savedMovies]);
+  const isActive = useMemo(() => isSaved(movie), [savedMovies]);
 
   const toggleWatchLater = () => update(movie);
 

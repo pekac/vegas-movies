@@ -4,6 +4,12 @@ import { BASE_URL, API_KEY } from "@constants/api";
 
 import { IMovie } from "@models/movie";
 
+function buildQuery(uri: string, params: {} = {}) {
+  const temp = new URLSearchParams(params).toString();
+  const queryParams = temp.length > 0 ? `&${temp}` : "";
+  return `${BASE_URL}${uri}?api_key=${API_KEY}&language=en-US${queryParams}`;
+}
+
 function getMovies(query: string = "", page: number = 1): Promise<IMovie[]> {
   if (query.length === 0) {
     return getTopRatedMovies(page);
@@ -13,9 +19,8 @@ function getMovies(query: string = "", page: number = 1): Promise<IMovie[]> {
 }
 
 async function getTopRatedMovies(page: number = 1): Promise<IMovie[]> {
-  const res = await fetch(
-    `${BASE_URL}/movie/top_rated?api_key=${API_KEY}&language=en-US&page=${page}`
-  );
+  const uri = buildQuery("/movie/top_rated", { page });
+  const res = await fetch(uri);
   const { results = [] } = await res.json();
   return results;
 }
@@ -24,17 +29,19 @@ async function searchMovies(
   query: string = "",
   page: number = 1
 ): Promise<IMovie[]> {
-  const res = await fetch(
-    `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${query}&language=en-US&page=${page}&include_adult=false`
-  );
+  const uri = buildQuery("/search/movie", {
+    query,
+    page,
+    include_adult: false,
+  });
+  const res = await fetch(uri);
   const { results = [] } = await res.json();
   return results;
 }
 
 async function getVideoSrcForMovie(id: number = 1): Promise<string> {
-  const res = await fetch(
-    `${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}&language=en-US`
-  );
+  const uri = buildQuery(`/movie/${id}/videos`);
+  const res = await fetch(uri);
   const { results = [] } = await res.json();
   return results.length > 0 ? results[0] : null;
 }

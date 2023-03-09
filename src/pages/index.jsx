@@ -16,7 +16,7 @@ const IndexPage = ({ topMovies }) => {
   useEffect(() => {
     const list = query.length > 0 ? movies : topMovies;
     setMovies(list);
-  }, []);
+  }, [query]);
 
   return <MovieList movies={movies} />;
 };

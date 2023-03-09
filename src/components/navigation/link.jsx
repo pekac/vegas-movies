@@ -5,11 +5,10 @@ import Link from "next/link";
 const NavLink = ({ link }) => {
   const router = useRouter();
   const isActiveClass = router.pathname === link.path ? "active" : "";
-
   return (
     <div>
-      <Link href={link.path}>
-        <a className={`nav-link ${isActiveClass}`}>{link.name}</a>
+      <Link href={link.path} className={`nav-link ${isActiveClass}`}>
+        {link.name}
       </Link>
       <style jsx>{`
         .nav-link {

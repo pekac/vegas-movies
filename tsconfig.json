@@ -19,7 +19,7 @@
       "@constants/*": ["src/constants/*"],
       "@context/*": ["src/context/*"],
       "@lib/*": ["src/lib/*"],
-      "@management/*": ["src/management/*"],
+      "@models/*": ["src/models/*"],
       "@pages/*": ["src/pages/*"],
       "@services/*": ["src/services/*"],
       "@/*": ["./*"]

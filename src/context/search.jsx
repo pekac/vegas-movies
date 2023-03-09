@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 
-import { MoviesContext } from "./movies";
+// import { MoviesContext } from "./movies";
 
 import MovieService from "@services/movie";
 
@@ -9,7 +9,7 @@ import { debounce } from "@lib/utils";
 export const SearchContext = React.createContext(null);
 
 const SearchProvider = ({ children }) => {
-  const { setMovies } = useContext(MoviesContext);
+  // const { setMovies } = useContext(MoviesContext);
   const [query, setQuery] = useState("");
 
   const search = debounce(async () => {

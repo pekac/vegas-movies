@@ -1,27 +1,24 @@
-import fetch from "isomorphic-unfetch";
-
 import { buildQuery } from "@lib/http";
 
 import { IMovie } from "@models/movie";
+import { IOptions } from "@models/resource";
 
 const SERVICE_URI = "/movie";
 
-// function getMovies(query: string = "", page: number = 1): Promise<IMovie[]> {
-//   if (query.length === 0) {
-//     return getTopRatedMovies(page);
-//   }
-
-//   return searchMovies(query, page);
-// }
-
-async function getTopRatedMovies(page: number = 1): Promise<IMovie[]> {
+async function getTopRatedMovies({
+  page = 1,
+  fetchOptions = {},
+}: {
+  page: number;
+  fetchOptions: IOptions;
+}): Promise<IMovie[]> {
   const uri = buildQuery(`${SERVICE_URI}/top_rated`, { page });
-  const res = await fetch(uri);
+  const res = await fetch(uri, { ...fetchOptions });
   const { results = [] } = await res.json();
   return results;
 }
 
-async function getVideoSrcForMovie(id: number = 1): Promise<string> {
+async function getVideoSrcById(id: number = 1): Promise<string> {
   const uri = buildQuery(`${SERVICE_URI}/${id}/videos`);
   const res = await fetch(uri);
   const { results = [] } = await res.json();
@@ -30,5 +27,5 @@ async function getVideoSrcForMovie(id: number = 1): Promise<string> {
 
 export default {
   getTopRatedMovies,
-  getVideoSrcForMovie,
+  getVideoSrcById,
 };

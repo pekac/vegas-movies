@@ -3,7 +3,7 @@ export function findItemIndexInList(list: any[], item: any) {
 }
 
 export function debounce(fn: Function, interval: number) {
-  let timeout = null;
+  let timeout: any = null;
 
   return function (...args: any[]) {
     const context = this;

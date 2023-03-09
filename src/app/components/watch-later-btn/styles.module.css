@@ -1,0 +1,9 @@
+.save-btn {
+  text-align: right;
+}
+
+.save-btn i {
+  color: #fe4141;
+  font-size: 28px;
+  text-align: right;
+}

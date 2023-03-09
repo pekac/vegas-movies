@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 
 import { MoviesContext } from "./movies";
 
-import MovieService from "@services/movie-service";
+import MovieService from "@services/movie";
 
 import { debounce } from "@lib/debounce";
 

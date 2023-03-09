@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import TrailerModal from "@components/trailer-modal";
 
-import MovieService from "@services/movie-service";
+import MovieService from "@services/movie";
 
 export const TrailerContext = React.createContext(null);
 

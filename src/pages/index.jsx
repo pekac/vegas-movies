@@ -7,7 +7,7 @@ import { SearchContext } from "@context/search";
 
 import { DAILY_IN_SECONDS as DAILY } from "@constants/periods";
 
-import MovieService from "@services/movie-service";
+import MovieService from "@services/movie";
 
 const IndexPage = ({ topMovies }) => {
   const { query } = useContext(SearchContext);

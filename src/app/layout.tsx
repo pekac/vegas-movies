@@ -1,4 +1,5 @@
-import styles from "./styles.module.css";
+import "./styles/globals.css";
+import styles from "./styles/styles.module.css";
 
 // import Header from "@components/header";
 // import FooterNav from "@components/footer-nav";
@@ -12,11 +13,13 @@ export const metadata = {
 
 function Layout({ children }) {
   return (
-    <>
-      {/* <Header /> */}
-      <main className={styles.container}>{children}</main>
-      {/* <FooterNav /> */}
-    </>
+    <html lang="en">
+      <body>
+        {/* <Header /> */}
+        <main className={styles.container}>{children}</main>
+        {/* <FooterNav /> */}
+      </body>
+    </html>
   );
 }
 

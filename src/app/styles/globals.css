@@ -2,7 +2,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800,300italic,400italic,600italic,700italic,800italic);
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 
-/* html,
+html,
 body {
   margin: 0;
   padding: 0;
@@ -37,7 +37,7 @@ button {
   background: transparent;
   border: none;
   cursor: pointer;
-} */
+}
 
 .container {
   background: #1e1b26;

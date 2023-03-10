@@ -1,9 +1,8 @@
-import fetch from "isomorphic-unfetch";
-
 import { buildQuery } from "@lib/http";
 
 import { IAccount } from "@models/account";
 import { IMovie, IPaginatedMovies } from "@models/movie";
+import { IOptions } from "@models/resource";
 
 const SERVICE_URI = "/account";
 
@@ -14,10 +13,16 @@ async function getAccountId(): Promise<number> {
   return account.id;
 }
 
-async function getFavorites(page: number = 1): Promise<IMovie[]> {
+async function getFavorites({
+  page = 1,
+  fetchOptions = {},
+}: {
+  page: number;
+  fetchOptions: IOptions;
+}): Promise<IMovie[]> {
   const id = await getAccountId();
   const uri = buildQuery(`${SERVICE_URI}/${id}/favorite/movies`, { page });
-  const res = await fetch(uri);
+  const res = await fetch(uri, { ...fetchOptions });
   const favs: IPaginatedMovies = await res.json();
   return favs.results;
 }
@@ -38,10 +43,16 @@ async function markFavorite(
   });
 }
 
-async function getWatchlist(page: number = 1) {
+async function getWatchlist({
+  page = 1,
+  fetchOptions = {},
+}: {
+  page: number;
+  fetchOptions: IOptions;
+}): Promise<IMovie[]> {
   const id = await getAccountId();
   const uri = buildQuery(`${SERVICE_URI}/${id}/watchlist/movies`, { page });
-  const res = await fetch(uri);
+  const res = await fetch(uri, { ...fetchOptions });
   const favs: IPaginatedMovies = await res.json();
   return favs.results;
 }

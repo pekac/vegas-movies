@@ -1,5 +1,3 @@
-import fetch from "isomorphic-unfetch";
-
 import { buildQuery } from "@lib/http";
 
 import { IMovie } from "@models/movie";

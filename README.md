@@ -1,6 +1,12 @@
+# :warning: Migration to next 13 in progress! :warning:
+
 ## Movies browsing app
 
 Built with React, Next.js and https://www.themoviedb.org/ API.
+
+## Note
+
+Before running app locally make sure to get an API key from https://www.themoviedb.org/.
 
 ## Installation
 

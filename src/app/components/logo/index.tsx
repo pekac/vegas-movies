@@ -7,7 +7,7 @@ function Logo() {
     <Link href="/">
       <img
         className={styles["logo"]}
-        src="/static/logo.png"
+        src="/icons/logo.png"
         alt="Vegas Movies"
         title="Vegas Movies"
       />

@@ -3,11 +3,13 @@
 }
 .search {
   display: flex;
-  margin: 0 20px;
+  max-width: 500px;
+  padding: 0 20px;
+  margin: 0 auto;
 }
 @media (max-width: 767px) {
   .search {
-    margin: 0 10px;
+    padding: 0 10px;
   }
 }
 .search-term {

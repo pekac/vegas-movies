@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   height: 60px;
-  padding: 5px;
+  padding: 5px 10px;
   background-color: #1e1b26;
   display: flex;
   justify-content: space-between;
@@ -12,8 +12,6 @@
   z-index: 5;
 }
 
-@media (max-width: 519px) {
-  .nav-wrapper {
-    display: none;
-  }
+.menu {
+  margin-left: 7px;
 }

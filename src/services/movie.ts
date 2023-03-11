@@ -1,7 +1,7 @@
 import { buildQuery } from "@lib/http";
 
 import { IMovie } from "@models/movie";
-import { IOptions } from "@models/resource";
+import { IOptions } from "@models/http";
 
 const SERVICE_URI = "/movie";
 

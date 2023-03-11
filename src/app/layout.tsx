@@ -1,8 +1,8 @@
-import "./styles/globals.css";
-import styles from "./styles/styles.module.css";
+import "./globals.css";
+import styles from "./styles.module.css";
 
-// import Header from "@components/header";
-// import FooterNav from "@components/footer-nav";
+import Header from "@components/header";
+import FooterNav from "@components/footer-nav";
 
 export const metadata = {
   title: "Vegas Movies - Entertainment's finest",
@@ -15,9 +15,9 @@ function Layout({ children }) {
   return (
     <html lang="en">
       <body>
-        {/* <Header /> */}
+        <Header />
         <main className={styles.container}>{children}</main>
-        {/* <FooterNav /> */}
+        <FooterNav />
       </body>
     </html>
   );

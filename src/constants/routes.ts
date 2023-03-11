@@ -4,7 +4,7 @@ export const ROUTES = [
     path: "/favorites",
   },
   {
-    name: "watch later",
-    path: "/watch-later",
+    name: "watchlist",
+    path: "/watchlist",
   },
 ];

@@ -18,7 +18,7 @@ async function getFavorites({
   fetchOptions = {},
 }: {
   page: number;
-  fetchOptions: IOptions;
+  fetchOptions?: IOptions;
 }): Promise<IMovie[]> {
   const id = await getAccountId();
   const uri = buildQuery(`${SERVICE_URI}/${id}/favorite/movies`, { page });
@@ -48,7 +48,7 @@ async function getWatchlist({
   fetchOptions = {},
 }: {
   page: number;
-  fetchOptions: IOptions;
+  fetchOptions?: IOptions;
 }): Promise<IMovie[]> {
   const id = await getAccountId();
   const uri = buildQuery(`${SERVICE_URI}/${id}/watchlist/movies`, { page });

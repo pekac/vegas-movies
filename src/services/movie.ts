@@ -10,7 +10,7 @@ async function getTopRatedMovies({
   fetchOptions = {},
 }: {
   page: number;
-  fetchOptions: IOptions;
+  fetchOptions?: IOptions;
 }): Promise<IMovie[]> {
   const uri = buildQuery(`${SERVICE_URI}/top_rated`, { page });
   const res = await fetch(uri, { ...fetchOptions });

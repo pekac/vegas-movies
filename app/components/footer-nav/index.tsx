@@ -1,6 +1,6 @@
 import styles from "./styles.module.css";
 
-import Navigation from "@components/navigation";
+import Navigation from "@/app/components/navigation";
 
 function FooterNav() {
   return (

@@ -1,7 +1,7 @@
-import MovieCard from "@components/movie-card";
-import NoResults from "@components/no-result";
+import MovieCard from "@/app/components/movie-card";
+import NoResults from "@/app/components/no-result";
 
-import { gql, db } from "@lib/graphql";
+import { gql, db } from "@/app/lib/graphql";
 
 async function IndexPage() {
   // @ts-ignore

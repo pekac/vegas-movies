@@ -1,8 +1,8 @@
 import styles from "./styles.module.css";
 
-import NavLink from "@components/navigation-link";
+import NavLink from "@/app/components/navigation-link";
 
-import { ROUTES } from "@constants/routes";
+import { ROUTES } from "@/app/constants/routes";
 
 function Navigation() {
   return (

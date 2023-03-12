@@ -1,7 +1,7 @@
 import styles from "./styles.module.css";
 
-import WatchLaterBtn from "@components/watch-later-btn";
-import TrailerBtn from "@components/trailer-btn";
+import WatchLaterBtn from "@/app/components/watch-later-btn";
+import TrailerBtn from "@/app/components/trailer-btn";
 
 function MovieActions({ movie }) {
   return (

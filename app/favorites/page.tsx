@@ -1,7 +1,7 @@
-import MovieCard from "@components/movie-card";
-import NoResults from "@components/no-result";
+import MovieCard from "@/app/components/movie-card";
+import NoResults from "@/app/components/no-result";
 
-async function WatchlistPage() {
+async function FavoritesPage() {
   // const movies = [];
 
   // if (!movies || movies?.length === 0) {
@@ -11,4 +11,4 @@ async function WatchlistPage() {
   // return movies.map((movie) => <MovieCard key={movie.id} movie={movie} />);
 }
 
-export default WatchlistPage;
+export default FavoritesPage;

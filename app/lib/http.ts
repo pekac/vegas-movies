@@ -1,4 +1,4 @@
-import { BASE_URL, API_KEY } from "@constants/api";
+import { BASE_URL, API_KEY } from "@/app/constants/api";
 
 export function buildQuery(uri: string, params: {} = {}) {
   const temp = new URLSearchParams(params).toString();

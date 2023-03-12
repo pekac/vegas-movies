@@ -15,14 +15,12 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@client-components/*": ["src/components/*"],
-      "@components/*": ["src/app/components/*"],
-      "@constants/*": ["src/constants/*"],
-      "@context/*": ["src/context/*"],
-      "@lib/*": ["src/lib/*"],
-      "@models/*": ["src/models/*"],
+      "@components/*": ["app/components/*"],
+      "@constants/*": ["app/constants/*"],
+      "@context/*": ["app/context/*"],
+      "@lib/*": ["app/lib/*"],
+      "@models/*": ["app/models/*"],
       "@pages/*": ["src/pages/*"],
-      "@services/*": ["src/services/*"],
       "@/*": ["./*"]
     },
     "plugins": [

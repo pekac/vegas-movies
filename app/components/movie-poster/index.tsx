@@ -1,8 +1,8 @@
 import styles from "./styles.module.css";
 
-import FavoriteBtn from "@components/favorite-btn";
+import FavoriteBtn from "@/app/components/favorite-btn";
 
-import { IMG_BASE_URL } from "@constants/api";
+import { IMG_BASE_URL } from "@/app/constants/api";
 
 function MoviePoster({ movie }) {
   return (

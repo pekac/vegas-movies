@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useState } from "react";
 
 import MovieService from "@services/movie";
 
-import { debounce } from "@lib/utils";
+import { debounce } from "@/app/lib/utils";
 
 export const SearchContext = React.createContext(null);
 

@@ -8,10 +8,19 @@ function MovieCard({ movie }) {
   return (
     <div className={styles["container"]}>
       <div className={styles["movie"]}>
-        <MoviePoster movie={movie} />
+        <MoviePoster
+          id={movie.id}
+          isFavorite={movie.isFavorite}
+          imgSrc={movie.imgSrc}
+        />
         <div className={styles["movie-content"]}>
-          <MovieContent movie={movie} />
-          <MovieActions movie={movie} />
+          <MovieContent
+            title={movie.title}
+            overview={movie.overview}
+            releaseDate={movie.releaseDate}
+            rating={movie.rating}
+          />
+          <MovieActions onWatchlist={movie.onWatchlist} />
         </div>
       </div>
     </div>

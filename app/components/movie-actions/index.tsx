@@ -3,11 +3,11 @@ import styles from "./styles.module.css";
 import WatchLaterBtn from "@/app/components/watch-later-btn";
 import TrailerBtn from "@/app/components/trailer-btn";
 
-function MovieActions({ movie }) {
+function MovieActions({ onWatchlist }) {
   return (
     <div className={styles["movie-actions"]}>
-      <TrailerBtn movie={movie} />
-      <WatchLaterBtn movie={movie} />
+      <TrailerBtn />
+      <WatchLaterBtn onWatchlist={onWatchlist} />
     </div>
   );
 }

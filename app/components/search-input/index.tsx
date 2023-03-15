@@ -2,9 +2,13 @@
 
 import styles from "./styles.module.css";
 
+import { useMovies } from "@context/movie";
+
 function SearchInput() {
-  const onChange = (e) => {
-    console.log("mrk");
+  const { search } = useMovies();
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    search(e.target.value);
   };
 
   return (

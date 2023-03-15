@@ -1,17 +1,15 @@
 import styles from "./styles.module.css";
 
-function MovieContent({ movie }) {
+function MovieContent({ title, rating, overview, releaseDate }) {
   return (
     <>
-      <h1 className={styles["movie-title"]}>{movie.original_title}</h1>
-      <p className={styles["release-date"]}>
-        Release date: {movie.release_date}
-      </p>
+      <h1 className={styles["movie-title"]}>{title}</h1>
+      <p className={styles["release-date"]}>Release date: {releaseDate}</p>
       <div className={styles["summary-row"]}>
         <h5>SUMMARY</h5>
-        <div className={styles["movie-grade"]}>{movie.vote_average}/10</div>
+        <div className={styles["movie-grade"]}>{rating}/10</div>
       </div>
-      <p className={styles["movie-description"]}>{movie.overview}</p>
+      <p className={styles["movie-description"]}>{overview}</p>
     </>
   );
 }

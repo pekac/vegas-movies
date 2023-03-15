@@ -2,9 +2,8 @@
 
 import styles from "./styles.module.css";
 
-function TrailerBtn({ movie }) {
+function TrailerBtn() {
   const showTrailer = () => {};
-
   return (
     <button className={styles["watch-btn"]} onClick={showTrailer}>
       <h3>

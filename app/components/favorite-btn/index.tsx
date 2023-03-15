@@ -1,13 +1,23 @@
 "use client";
 
+import { useMovies } from "@context/movie";
 import styles from "./styles.module.css";
 
-function FavoriteBtn({ movie }) {
-  const toggleFavorite = () => {};
-  const isActive = false;
+export interface IFavoriteBtn {
+  isFavorite: boolean;
+  movieId: number;
+}
+
+function FavoriteBtn({ isFavorite, movieId }: IFavoriteBtn) {
+  const { markFavorite } = useMovies();
+
+  const toggleFavorite = () => {
+    markFavorite(movieId);
+  };
+
   return (
     <button className={styles["fav-btn"]} onClick={toggleFavorite}>
-      {isActive ? (
+      {isFavorite ? (
         <i className="material-icons active">favorite</i>
       ) : (
         <i className="material-icons">favorite_border</i>

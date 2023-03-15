@@ -1,8 +1,4 @@
-export function findItemIndexInList(list: any[], item: any) {
-  return list.findIndex((i) => i.id === item.id);
-}
-
-export function debounce(fn: Function, interval: number) {
+export function debounce(fn: Function, interval: number): any {
   let timeout: any = null;
 
   return function (...args: any[]) {

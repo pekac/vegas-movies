@@ -3,7 +3,9 @@ import { GraphQLClient } from "graphql-request";
 export { gql } from "graphql-request";
 
 export const db = new GraphQLClient(process.env.NEXT_PUBLIC_API_URI as string, {
+  // @ts-ignore
   headers: {
-    Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
+    "content-type": "application/json",
+    "x-hasura-admin-secret": process.env.NEXT_PUBLIC_API_KEY,
   },
 });

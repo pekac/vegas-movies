@@ -20,6 +20,7 @@
       "@context/*": ["app/context/*"],
       "@lib/*": ["app/lib/*"],
       "@models/*": ["app/models/*"],
+      "@queries/*": ["app/queries/*"],
       "@/*": ["./*"]
     },
     "plugins": [

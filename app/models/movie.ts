@@ -1,18 +1,15 @@
 export interface IMovie {
-  adult: boolean;
-  backdrop_path: string | null;
-  genre_ids: number[];
+  backdrop: string | null;
   id: number;
-  original_language: string;
-  original_title: string;
+  lang: string;
   overview: string;
-  release_date: string;
-  poster_path: string | null;
-  popularity: number;
+  releaseDate: string;
+  imgSrc: string | null;
   title: string;
-  video: boolean;
-  vote_average: number;
-  vote_count: number;
+  rating: number;
+  voteCount: number;
+  isFavorite: boolean;
+  onWatchlist: boolean;
 }
 
 export interface IPaginatedMovies {

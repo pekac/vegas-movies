@@ -27,10 +27,9 @@ function MoviesProvider({ allMovies, children }: Props) {
 
   const search = async (query: string = ""): Promise<void> => {
     // @ts-ignore
-    const { moviesByTitle } = await db.request(SearchMovies, {
-      query,
+    const { movies } = await db.request(SearchMovies, {
+      query: `%${query}%`,
     });
-    const { data: movies } = moviesByTitle;
     setMovies(movies);
   };
 
@@ -49,17 +48,18 @@ function MoviesProvider({ allMovies, children }: Props) {
 
 const SearchMovies = gql`
   query SearchMovies($query: String!) {
-    moviesByTitle(original_title: match: { terms: Split($query, ""), casefold: true }) {
-      data {
-        id
-        is_favorite
-        original_title
-        overview
-        poster_path
-        release_date
-        vote_average
-        watchlist
-      }
+    movies(where: { title: { _like: $query } }) {
+      backdrop: backdrop_path
+      id
+      lang: original_language
+      overview
+      imgSrc: poster_path
+      releaseDate: release_date
+      title
+      rating: vote_average
+      voteCount: vote_count
+      isFavorite: is_favorite
+      onWatchlist: on_watchlist
     }
   }
 `;

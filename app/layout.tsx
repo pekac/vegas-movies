@@ -33,7 +33,7 @@ async function Layout({ children }) {
 
 const GetMovies = gql`
   query GetMovies {
-    movies {
+    movies(order_by: { vote_average: desc }) {
       backdrop: backdrop_path
       id
       lang: original_language

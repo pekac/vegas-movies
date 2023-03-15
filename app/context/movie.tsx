@@ -2,10 +2,12 @@
 
 import { createContext, useContext, useState } from "react";
 
-import { gql, db } from "@lib/graphql";
+import { db } from "@lib/graphql";
+import { debounce } from "@lib/utils";
 
 import { IMovie } from "@models/movie";
-import { debounce } from "@lib/utils";
+
+import { SearchMovies } from "@queries/movies";
 
 export interface IMoviesContext {
   movies: IMovie[];
@@ -45,24 +47,6 @@ function MoviesProvider({ allMovies, children }: Props) {
     </MoviesContext.Provider>
   );
 }
-
-const SearchMovies = gql`
-  query SearchMovies($query: String!) {
-    movies(where: { title: { _like: $query } }) {
-      backdrop: backdrop_path
-      id
-      lang: original_language
-      overview
-      imgSrc: poster_path
-      releaseDate: release_date
-      title
-      rating: vote_average
-      voteCount: vote_count
-      isFavorite: is_favorite
-      onWatchlist: on_watchlist
-    }
-  }
-`;
 
 export function useMovies() {
   const ctx = useContext(MoviesContext);

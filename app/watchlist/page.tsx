@@ -1,11 +1,13 @@
 import MovieCard from "@/app/components/movie-card";
 import NoResults from "@/app/components/no-result";
 
-import { gql, db } from "@lib/graphql";
+import { db } from "@lib/graphql";
+
+import { GetWatchlist } from "@queries/movies";
 
 async function WatchlistPage() {
   // @ts-ignore
-  const { movies } = await db.request(GetMovies);
+  const { movies } = await db.request(GetWatchlist);
 
   if (!movies || movies?.length === 0) {
     return <NoResults />;
@@ -19,23 +21,5 @@ async function WatchlistPage() {
     </>
   );
 }
-
-const GetMovies = gql`
-  query GetMovies {
-    movies {
-      backdrop_path
-      id
-      original_language
-      overview
-      poster_path
-      release_date
-      title
-      vote_average
-      vote_count
-      on_watchlist
-      is_favorite
-    }
-  }
-`;
 
 export default WatchlistPage;

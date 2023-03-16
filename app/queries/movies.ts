@@ -51,3 +51,27 @@ export const SearchMovies = gql`
   }
   ${MovieFragment}
 `;
+
+export const UpdateFavoriteStatus = gql`
+  mutation UpdateFavoriteStatus($id: smallint!, $isFavorite: Boolean!) {
+    update_movies_by_pk(
+      pk_columns: { id: $id }
+      _set: { is_favorite: $isFavorite }
+    ) {
+      id
+      isFavorite: is_favorite
+    }
+  }
+`;
+
+export const UpdateWatchlistStatus = gql`
+  mutation UpdateWatchlistStatus($id: smallint!, $onWatchlist: Boolean!) {
+    update_movies_by_pk(
+      pk_columns: { id: $id }
+      _set: { on_watchlist: $onWatchlist }
+    ) {
+      id
+      onWatchlist: on_watchlist
+    }
+  }
+`;

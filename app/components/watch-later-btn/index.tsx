@@ -2,8 +2,15 @@
 
 import styles from "./styles.module.css";
 
-function WatchLaterBtn({ onWatchlist }) {
-  const toggleWatchLater = () => {};
+import { useMovies } from "@context/movie";
+
+function WatchLaterBtn({ movieId, onWatchlist }) {
+  const { updateWatchlistStatus } = useMovies();
+
+  const toggleWatchLater = () => {
+    updateWatchlistStatus(movieId, onWatchlist);
+  };
+
   return (
     <div>
       <button className={styles["save-btn"]} onClick={toggleWatchLater}>

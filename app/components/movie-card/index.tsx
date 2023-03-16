@@ -20,7 +20,7 @@ function MovieCard({ movie }) {
             releaseDate={movie.releaseDate}
             rating={movie.rating}
           />
-          <MovieActions onWatchlist={movie.onWatchlist} />
+          <MovieActions id={movie.id} onWatchlist={movie.onWatchlist} />
         </div>
       </div>
     </div>

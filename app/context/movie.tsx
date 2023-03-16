@@ -7,12 +7,17 @@ import { debounce } from "@lib/utils";
 
 import { IMovie } from "@models/movie";
 
-import { SearchMovies } from "@queries/movies";
+import {
+  SearchMovies,
+  UpdateFavoriteStatus,
+  UpdateWatchlistStatus,
+} from "@queries/movies";
 
 export interface IMoviesContext {
   movies: IMovie[];
-  markFavorite: (id: number) => Promise<void>;
   search: (query: string) => Promise<void>;
+  updateFavoriteStatus: (id: number, isFavorite: boolean) => Promise<void>;
+  updateWatchlistStatus: (id: number, onWatchlist: boolean) => Promise<void>;
 }
 
 export interface Props {
@@ -25,7 +30,49 @@ const MoviesContext = createContext<IMoviesContext>({} as IMoviesContext);
 function MoviesProvider({ allMovies, children }: Props) {
   const [movies, setMovies] = useState<IMovie[]>(allMovies);
 
-  const markFavorite = async (id: number): Promise<void> => {};
+  const updateFavoriteStatus = async (
+    id: number,
+    isFavorite: boolean
+  ): Promise<void> => {
+    try {
+      // @ts-ignore
+      const { update_movies_by_pk: movie } = await db.request(
+        UpdateFavoriteStatus,
+        {
+          id,
+          isFavorite: !isFavorite,
+        }
+      );
+      const index = movies.findIndex((m) => m.id === movie.id);
+      setMovies([
+        ...movies.slice(0, index),
+        { ...movies[index], ...movie },
+        ...movies.slice(index + 1, movies.length),
+      ]);
+    } catch (e) {}
+  };
+
+  const updateWatchlistStatus = async (
+    id: number,
+    onWatchlist: boolean
+  ): Promise<void> => {
+    try {
+      // @ts-ignore
+      const { update_movies_by_pk: movie } = await db.request(
+        UpdateWatchlistStatus,
+        {
+          id,
+          onWatchlist: !onWatchlist,
+        }
+      );
+      const index = movies.findIndex((m) => m.id === movie.id);
+      setMovies([
+        ...movies.slice(0, index),
+        { ...movies[index], ...movie },
+        ...movies.slice(index + 1, movies.length),
+      ]);
+    } catch (e) {}
+  };
 
   const search = async (query: string = ""): Promise<void> => {
     // @ts-ignore
@@ -39,8 +86,9 @@ function MoviesProvider({ allMovies, children }: Props) {
     <MoviesContext.Provider
       value={{
         movies,
-        markFavorite,
         search: debounce(search, 200),
+        updateFavoriteStatus,
+        updateWatchlistStatus,
       }}
     >
       {children}

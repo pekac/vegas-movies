@@ -9,10 +9,10 @@ export interface IFavoriteBtn {
 }
 
 function FavoriteBtn({ isFavorite, movieId }: IFavoriteBtn) {
-  const { markFavorite } = useMovies();
+  const { updateFavoriteStatus } = useMovies();
 
   const toggleFavorite = () => {
-    markFavorite(movieId);
+    updateFavoriteStatus(movieId, isFavorite);
   };
 
   return (

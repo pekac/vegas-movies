@@ -1,7 +1,7 @@
 import MovieList from "@components/movie-list";
 
 async function IndexPage() {
-  return <MovieList />;
+  return <MovieList type="all" />;
 }
 
 export default IndexPage;

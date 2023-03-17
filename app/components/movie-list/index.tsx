@@ -1,20 +1,41 @@
-"use client";
-
 import MovieCard from "@components/movie-card";
 import NoResults from "@components/no-result";
 
 import { useMovies } from "@context/movie";
 
-function MovieList() {
-  const { movies } = useMovies();
+import { IMovie, MOVIE_LIST_TYPE } from "@models/movie";
+import { useMemo } from "react";
 
-  if (movies.length === 0) {
+export interface Props {
+  type: MOVIE_LIST_TYPE;
+}
+
+function MovieList({ type }: Props) {
+  const { movies } = useMovies();
+  const list: IMovie[] = useMemo(() => {
+    switch (type) {
+      case "all": {
+        return movies;
+      }
+      case "favorites": {
+        return movies.filter((m) => m.isFavorite);
+      }
+      case "watchlist": {
+        return movies.filter((m) => m.onWatchlist);
+      }
+      default: {
+        return [];
+      }
+    }
+  }, [movies, type]);
+
+  if (list.length === 0) {
     return <NoResults />;
   }
 
   return (
     <>
-      {movies.map((movie) => (
+      {list.map((movie) => (
         <MovieCard key={movie.id} movie={movie} />
       ))}
     </>

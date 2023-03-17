@@ -3,14 +3,6 @@ module.exports = {
   content: ["./app/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      fontSize: {
-        xs: "12px",
-        sm: "14px",
-        base: "16px",
-        md: "20px",
-        lg: "25px",
-        xl: "32px",
-      },
       borderRadius: {
         none: "0px",
         xs: "5px",
@@ -18,6 +10,29 @@ module.exports = {
         default: "15px",
         lg: "20px",
         xl: "25px",
+      },
+      boxShadow: {
+        "3xl": "5px 5px 115px -14px black;",
+      },
+      colors: {
+        red: {
+          400: "#fe4141",
+        },
+        grey: {
+          100: "#e7e7e7",
+          300: "#9b9b9b",
+          400: "#818181",
+          900: "#1e1b26",
+        },
+      },
+      fontFamily: { inter: "Inter" },
+      fontSize: {
+        xs: "12px",
+        sm: "14px",
+        base: "16px",
+        md: "20px",
+        lg: "25px",
+        xl: "32px",
       },
       screens: {
         sm: "320px",
@@ -37,18 +52,6 @@ module.exports = {
         7: "32px",
         8: "64px",
         9: "96px",
-      },
-      fontFamily: { inter: "Inter" },
-      colors: {
-        red: {
-          400: "#fe4141",
-        },
-        grey: {
-          100: "#e7e7e7",
-          300: "#9b9b9b",
-          400: "#818181",
-          900: "#1e1b26",
-        },
       },
     },
   },

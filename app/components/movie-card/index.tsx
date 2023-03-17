@@ -10,7 +10,7 @@ export interface Props {
 
 function MovieCard({ movie }: Props) {
   return (
-    <div className="w-full max-w-[375px] h-[660px] bg-grey-900 rounded-xs shadow-black">
+    <div className="w-full max-w-[375px] h-[660px] bg-grey-900 rounded-xs shadow-3xl">
       <div className="w-full min-w-[320px] h-full rounded-xs">
         <MoviePoster
           id={movie.id}

@@ -28,7 +28,7 @@ async function Layout({ children }: Props) {
       <body>
         <MoviesProvider allMovies={movies}>
           <Header />
-          <main className="py-7 w-full min-h-screen flex flex-wrap justify-center bg-grey-900">
+          <main className="py-8 w-full min-h-screen flex flex-wrap justify-center bg-grey-900">
             {children}
           </main>
           <FooterNav />

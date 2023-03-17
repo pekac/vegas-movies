@@ -40,6 +40,9 @@ module.exports = {
       },
       fontFamily: { inter: "Inter" },
       colors: {
+        primary: {
+          default: "#fe4141",
+        },
         grey: {
           100: "#e7e7e7",
           900: "#1e1b26",

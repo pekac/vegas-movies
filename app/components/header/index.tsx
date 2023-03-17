@@ -1,14 +1,12 @@
-import styles from "./styles.module.css";
-
 import Logo from "@components/logo";
 import SearchInput from "@components/search-input";
 
 function Header() {
   return (
-    <header className={styles.header}>
+    <header className="fixed inset-x-0 top-0 py-1 px-2 h-[60px] flex justify-between items-center bg-grey-900 z-10">
       <Logo />
       <SearchInput />
-      <img className={styles.menu} src="/icons/menu.svg" />
+      <img className="ml-2" src="/icons/menu.svg" />
     </header>
   );
 }

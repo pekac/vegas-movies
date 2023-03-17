@@ -1,13 +1,17 @@
 "use client";
 
-import styles from "./styles.module.css";
-
 import { useMovies } from "@context/movie";
 
 export interface Props {
   isFavorite: boolean;
   movieId: number;
 }
+
+//  i {
+//   color: #e7e7e7;
+//   font-size: 42px;
+//   text-align: right;
+// }
 
 function FavoriteBtn({ isFavorite, movieId }: Props) {
   const { updateFavoriteStatus } = useMovies();
@@ -17,7 +21,7 @@ function FavoriteBtn({ isFavorite, movieId }: Props) {
   };
 
   return (
-    <button className={styles["fav-btn"]} onClick={toggleFavorite}>
+    <button className="float-right" onClick={toggleFavorite}>
       {isFavorite ? (
         <i className="material-icons active">favorite</i>
       ) : (

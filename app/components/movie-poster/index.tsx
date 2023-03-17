@@ -1,5 +1,3 @@
-import styles from "./styles.module.css";
-
 import FavoriteBtn from "@components/favorite-btn";
 
 import { IMG_BASE_URL } from "@constants/api";
@@ -13,7 +11,7 @@ export interface Props {
 function MoviePoster({ id, imgSrc, isFavorite }: Props) {
   return (
     <div
-      className={styles["movie-img"]}
+      className="relative w-full h-[380px] bg-cover bg-center bg-no-repeat rounded-t-xs"
       style={{ backgroundImage: `url(${IMG_BASE_URL}${imgSrc})` }}
     >
       <FavoriteBtn isFavorite={isFavorite} movieId={id} />

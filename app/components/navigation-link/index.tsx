@@ -1,7 +1,6 @@
 "use client";
 
-import styles from "./styles.module.css";
-
+import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -13,9 +12,15 @@ export interface Props {
 
 function NavLink({ link }: Props) {
   const pathname = usePathname();
-  const isActiveClass = pathname === link.path ? styles["active"] : "";
+  const isActiveClass = pathname === link.path;
   return (
-    <Link href={link.path} className={`${styles["nav-link"]} ${isActiveClass}`}>
+    <Link
+      href={link.path}
+      className={clsx(
+        "my-0 mx-3 md:mx-5 py-2 px-4 text-sm md:text-base text-grey-100 uppercase no-underline",
+        { isActiveClass: "font-bold text-grey-900 bg-grey-100 rounded-xs" }
+      )}
+    >
       {link.name}
     </Link>
   );

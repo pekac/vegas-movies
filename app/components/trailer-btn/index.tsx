@@ -1,5 +1,11 @@
 "use client";
 
+// i {
+//   position: relative;
+//   float: left;
+//   line-height: 1;
+// }
+
 function TrailerBtn() {
   const showTrailer = () => {};
   return (

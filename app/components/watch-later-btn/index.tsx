@@ -1,13 +1,17 @@
 "use client";
 
-import styles from "./styles.module.css";
-
 import { useMovies } from "@context/movie";
 
 export interface Props {
   movieId: number;
   onWatchlist: boolean;
 }
+
+// i {
+//  color: #fe4141;
+//  font-size: 28px;
+//  text-align: right;
+// }
 
 function WatchLaterBtn({ movieId, onWatchlist }: Props) {
   const { updateWatchlistStatus } = useMovies();
@@ -18,12 +22,9 @@ function WatchLaterBtn({ movieId, onWatchlist }: Props) {
 
   return (
     <div>
-      <button className={styles["save-btn"]} onClick={toggleWatchLater}>
-        {onWatchlist ? (
-          <i className="material-icons active">check</i>
-        ) : (
-          <i className="material-icons">save</i>
-        )}
+      <button className="text-right" onClick={toggleWatchLater}>
+        {/* save icon and checkmark icon */}
+        {onWatchlist ? "remove" : "save"}
       </button>
     </div>
   );

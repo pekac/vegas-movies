@@ -1,5 +1,4 @@
 import "./globals.css";
-import styles from "./styles.module.css";
 
 import Header from "@components/header";
 import FooterNav from "@components/footer-nav";
@@ -29,7 +28,9 @@ async function Layout({ children }: Props) {
       <body>
         <MoviesProvider allMovies={movies}>
           <Header />
-          <main className={styles.container}>{children}</main>
+          <main className="py-7 w-full min-h-screen flex flex-wrap justify-center bg-grey-900">
+            {children}
+          </main>
           <FooterNav />
         </MoviesProvider>
       </body>

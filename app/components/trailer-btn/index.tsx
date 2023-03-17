@@ -1,13 +1,15 @@
 "use client";
 
-import styles from "./styles.module.css";
-
 function TrailerBtn() {
   const showTrailer = () => {};
   return (
-    <button className={styles["watch-btn"]} onClick={showTrailer}>
-      <h3 className="text-sm font-normal text-primary">
-        <i className="material-icons">play_arrow</i>WATCH TRAILER
+    <button
+      className="px-2 py-1 border border-solid border-red-400 rounded-xs"
+      onClick={showTrailer}
+    >
+      <h3 className="text-sm font-normal text-red-400">
+        {/* play icon */}
+        WATCH TRAILER
       </h3>
     </button>
   );

@@ -13,12 +13,11 @@ module.exports = {
       },
       borderRadius: {
         none: "0px",
-        xs: "4px",
-        sm: "8px",
-        md: "12px",
-        DEFAULT: "16px",
-        lg: "24px",
-        xl: "32px",
+        xs: "5px",
+        sm: "10px",
+        default: "15px",
+        lg: "20px",
+        xl: "25px",
       },
       screens: {
         sm: "320px",
@@ -40,8 +39,8 @@ module.exports = {
       },
       fontFamily: { inter: "Inter" },
       colors: {
-        primary: {
-          default: "#fe4141",
+        red: {
+          400: "#fe4141",
         },
         grey: {
           100: "#e7e7e7",

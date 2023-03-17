@@ -10,7 +10,9 @@ export interface Props {
 function MovieContent({ overview, rating, releaseDate, title }: Props) {
   return (
     <>
-      <h1 className={styles["movie-title"]}>{title}</h1>
+      <h1 className="text-xl font-normal text-grey-100 text-ellipsis overflow-hidden">
+        {title}
+      </h1>
       <p className={styles["release-date"]}>Release date: {releaseDate}</p>
       <div className={styles["summary-row"]}>
         <h5 className="text-xs text-grey-100">SUMMARY</h5>

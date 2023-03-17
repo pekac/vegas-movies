@@ -9,14 +9,6 @@ body {
   padding: 0;
 }
 
-h1 {
-  color: #e7e7e7;
-  margin: 0px;
-
-  font-size: 36px;
-  font-weight: 400;
-}
-
 button {
   outline: none;
   background: transparent;

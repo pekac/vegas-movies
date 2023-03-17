@@ -1,9 +1,7 @@
-import styles from "./styles.module.css";
-
 function NoResults() {
   return (
-    <div className={styles.container}>
-      <h1>Nothing here :(</h1>
+    <div className="pt-7 flex">
+      <h1 className="text-xl font-normal text-grey-100">Nothing here :(</h1>
     </div>
   );
 }

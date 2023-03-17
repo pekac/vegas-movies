@@ -4,7 +4,12 @@ import styles from "./styles.module.css";
 
 import { useMovies } from "@context/movie";
 
-function WatchLaterBtn({ movieId, onWatchlist }) {
+export interface Props {
+  movieId: number;
+  onWatchlist: boolean;
+}
+
+function WatchLaterBtn({ movieId, onWatchlist }: Props) {
   const { updateWatchlistStatus } = useMovies();
 
   const toggleWatchLater = () => {

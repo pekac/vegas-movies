@@ -12,6 +12,8 @@ export interface IMovie {
   onWatchlist: boolean;
 }
 
+export type MOVIE_LIST_TYPE = "all" | "watchlist" | "favorites";
+
 export interface IPaginatedMovies {
   page: number;
   results: IMovie[];

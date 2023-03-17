@@ -1,10 +1,13 @@
+"use client";
+
+import { useMemo } from "react";
+
 import MovieCard from "@components/movie-card";
 import NoResults from "@components/no-result";
 
 import { useMovies } from "@context/movie";
 
 import { IMovie, MOVIE_LIST_TYPE } from "@models/movie";
-import { useMemo } from "react";
 
 export interface Props {
   type: MOVIE_LIST_TYPE;

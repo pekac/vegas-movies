@@ -1,14 +1,15 @@
 "use client";
 
-import { useMovies } from "@context/movie";
 import styles from "./styles.module.css";
 
-export interface IFavoriteBtn {
+import { useMovies } from "@context/movie";
+
+export interface Props {
   isFavorite: boolean;
   movieId: number;
 }
 
-function FavoriteBtn({ isFavorite, movieId }: IFavoriteBtn) {
+function FavoriteBtn({ isFavorite, movieId }: Props) {
   const { updateFavoriteStatus } = useMovies();
 
   const toggleFavorite = () => {

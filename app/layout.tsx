@@ -17,7 +17,11 @@ export const metadata = {
   },
 };
 
-async function Layout({ children }) {
+export interface Props {
+  children: React.ReactNode;
+}
+
+async function Layout({ children }: Props) {
   // @ts-ignore
   const { movies } = await db.request(GetMovies);
   return (

@@ -3,7 +3,12 @@ import styles from "./styles.module.css";
 import WatchLaterBtn from "@/app/components/watch-later-btn";
 import TrailerBtn from "@/app/components/trailer-btn";
 
-function MovieActions({ id, onWatchlist }) {
+export interface Props {
+  id: number;
+  onWatchlist: boolean;
+}
+
+function MovieActions({ id, onWatchlist }: Props) {
   return (
     <div className={styles["movie-actions"]}>
       <TrailerBtn />

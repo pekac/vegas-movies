@@ -5,7 +5,13 @@ import styles from "./styles.module.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-function NavLink({ link }) {
+import { IRoute } from "@constants/routes";
+
+export interface Props {
+  link: IRoute;
+}
+
+function NavLink({ link }: Props) {
   const pathname = usePathname();
   const isActiveClass = pathname === link.path ? styles["active"] : "";
   return (

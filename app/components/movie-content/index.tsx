@@ -1,6 +1,13 @@
 import styles from "./styles.module.css";
 
-function MovieContent({ title, rating, overview, releaseDate }) {
+export interface Props {
+  overview: string;
+  rating: number;
+  releaseDate: string;
+  title: string;
+}
+
+function MovieContent({ overview, rating, releaseDate, title }: Props) {
   return (
     <>
       <h1 className={styles["movie-title"]}>{title}</h1>

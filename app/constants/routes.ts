@@ -1,4 +1,4 @@
-export const ROUTES = [
+export const ROUTES: IRoute[] = [
   {
     name: "favorites",
     path: "/favorites",
@@ -8,3 +8,8 @@ export const ROUTES = [
     path: "/watchlist",
   },
 ];
+
+export interface IRoute {
+  name: string;
+  path: string;
+}

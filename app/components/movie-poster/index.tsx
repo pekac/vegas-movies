@@ -1,10 +1,16 @@
 import styles from "./styles.module.css";
 
-import FavoriteBtn from "@/app/components/favorite-btn";
+import FavoriteBtn from "@components/favorite-btn";
 
-import { IMG_BASE_URL } from "@/app/constants/api";
+import { IMG_BASE_URL } from "@constants/api";
 
-function MoviePoster({ id, isFavorite, imgSrc }) {
+export interface Props {
+  id: number;
+  imgSrc: string;
+  isFavorite: boolean;
+}
+
+function MoviePoster({ id, imgSrc, isFavorite }: Props) {
   return (
     <div
       className={styles["movie-img"]}

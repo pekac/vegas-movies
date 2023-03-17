@@ -1,7 +1,7 @@
 import styles from "./styles.module.css";
 
-import Logo from "@/app/components/logo";
-import SearchInput from "@/app/components/search-input";
+import Logo from "@components/logo";
+import SearchInput from "@components/search-input";
 
 function Header() {
   return (

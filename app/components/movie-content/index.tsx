@@ -5,10 +5,16 @@ export interface Props {
   title: string;
 }
 
+const MAX_LENGTH = 217;
+
 function MovieContent({ overview, rating, releaseDate, title }: Props) {
+  const summary =
+    overview.length < MAX_LENGTH
+      ? overview
+      : `${overview.substring(0, MAX_LENGTH - 3)}...`;
   return (
     <>
-      <h1 className="text-xl font-normal text-grey-100 text-ellipsis overflow-hidden">
+      <h1 className="pt-2 text-lg font-normal text-grey-100 text-ellipsis overflow-hidden">
         {title}
       </h1>
       <p className="my-1 text-xs font-bold text-grey-400 float-left">
@@ -20,8 +26,8 @@ function MovieContent({ overview, rating, releaseDate, title }: Props) {
           {rating}/10
         </div>
       </div>
-      <p className="text-xs text-grey-300 text-justify text-ellipsis overflow-hidden">
-        {overview}
+      <p className="max-h-[4rem] leading-4 text-xs text-grey-300 text-justify text-ellipsis overflow-x-hidden overflow-y-hidden">
+        {summary}
       </p>
     </>
   );

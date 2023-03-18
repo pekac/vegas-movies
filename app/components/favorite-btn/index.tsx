@@ -7,12 +7,6 @@ export interface Props {
   movieId: number;
 }
 
-//  i {
-//   color: #e7e7e7;
-//   font-size: 42px;
-//   text-align: right;
-// }
-
 function FavoriteBtn({ isFavorite, movieId }: Props) {
   const { updateFavoriteStatus } = useMovies();
 
@@ -23,9 +17,13 @@ function FavoriteBtn({ isFavorite, movieId }: Props) {
   return (
     <button className="float-right" onClick={toggleFavorite}>
       {isFavorite ? (
-        <i className="material-icons active">favorite</i>
+        <span className="!h-[42px] !w-[42px] bg-white z-30">
+          <img title="favorite" alt="favorite" src="/icons/fav-on.svg" />
+        </span>
       ) : (
-        <i className="material-icons">favorite_border</i>
+        <span className="!h-[42px] !w-[42px] bg-white z-30">
+          <img title="favorite" alt="favorite" src="/icons/fav-off.svg" />
+        </span>
       )}
     </button>
   );

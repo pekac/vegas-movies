@@ -7,12 +7,6 @@ export interface Props {
   onWatchlist: boolean;
 }
 
-// i {
-//  color: #fe4141;
-//  font-size: 28px;
-//  text-align: right;
-// }
-
 function WatchLaterBtn({ movieId, onWatchlist }: Props) {
   const { updateWatchlistStatus } = useMovies();
 
@@ -23,8 +17,21 @@ function WatchLaterBtn({ movieId, onWatchlist }: Props) {
   return (
     <div>
       <button className="text-right" onClick={toggleWatchLater}>
-        {/* save icon and checkmark icon */}
-        {onWatchlist ? "remove" : "save"}
+        {onWatchlist ? (
+          <img
+            className="!h-[36px] !w-[36px]"
+            title="Remove from watchlist"
+            alt="Remove from watchlist btn"
+            src="/icons/check.svg"
+          />
+        ) : (
+          <img
+            className="!h-[36px] !w-[36px]"
+            title="Add to watchlist"
+            alt="Add to watchlist btn"
+            src="/icons/save.svg"
+          />
+        )}
       </button>
     </div>
   );

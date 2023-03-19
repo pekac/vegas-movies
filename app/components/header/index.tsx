@@ -6,7 +6,7 @@ function Header() {
     <header className="fixed inset-x-0 top-0 py-1 px-2 h-[60px] flex justify-between items-center bg-grey-900 z-10">
       <Logo />
       <SearchInput />
-      <img className="ml-2" src="/icons/menu.svg" />
+      <span />
     </header>
   );
 }

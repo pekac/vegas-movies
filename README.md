@@ -1,12 +1,12 @@
-# :warning: Migration to next 13 in progress! :warning:
-
 ## Movies browsing app
 
-Built with React, Next.js and https://www.themoviedb.org/ API.
+- Migrated to Next13, TS, GQL, Tailwind.
+- Used Hasura+Neon.
+- Seeded with 20 top rated movies from https://www.themoviedb.org/ API.
 
 ## Note
 
-Before running app locally make sure to get an API key from https://www.themoviedb.org/.
+- Instructions for running locally: tbc
 
 ## Installation
 

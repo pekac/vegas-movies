@@ -22,8 +22,12 @@ function SearchInput() {
           type="submit"
           className="text-center text-white rounded-r-xs bg-red-400 border-1 border-solid border-red-400"
         >
-          {/* search icon */}
-          search
+          <img
+            className="h-[36px] w-[38px]"
+            title="Search movies"
+            alt="Search movies btn"
+            src="/icons/search.svg"
+          />
         </button>
       </div>
     </div>

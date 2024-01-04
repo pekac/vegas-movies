@@ -1,7 +1,14 @@
 import MovieList from "@components/movie-list";
 
+import { db } from "@lib/graphql";
+
+import { IMovie } from "@models/movie";
+
+import { GetWatchlist } from "@queries/movies";
+
 async function WatchlistPage() {
-  return <MovieList type="watchlist" />;
+  const { movies } = (await db.request(GetWatchlist)) as { movies: IMovie[] };
+  return <MovieList movies={movies} />;
 }
 
 export default WatchlistPage;

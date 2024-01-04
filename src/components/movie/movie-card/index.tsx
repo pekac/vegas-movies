@@ -1,20 +1,21 @@
-import { IMovie } from "@models/movie";
-
 import { IMG_BASE_URL } from "@constants/api";
+
 import { IconButton } from "@components/core";
+
+import { useMovies } from "@context/movie";
+
+import { IMovie } from "@models/movie";
 
 export interface IMovieCard {
   movie: IMovie;
 }
 
 export function MovieCard({ movie }: IMovieCard) {
-  const { imgSrc, onWatchlist, title } = movie;
-  const updateWatchlist = () => {
-    if (onWatchlist) {
-      // remove
-    }
+  const { updateWatchlistStatus } = useMovies();
+  const { id, imgSrc, onWatchlist, title } = movie;
 
-    // add to watchlist
+  const updateWatchlist = () => {
+    updateWatchlistStatus(id, onWatchlist);
   };
 
   const src = `${IMG_BASE_URL}${imgSrc}`;

@@ -1,49 +1,31 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext } from "react";
 
 import { db } from "@lib/graphql";
-import { debounce } from "@lib/utils";
-
-import { IMovie } from "@models/movie";
 
 import { SearchMovies, UpdateWatchlistStatus } from "@queries/movies";
 
 export interface IMoviesContext {
-  movies: IMovie[];
-  search: (query: string) => Promise<void>;
   updateWatchlistStatus: (id: number, onWatchlist: boolean) => Promise<void>;
 }
 
 export interface Props {
-  allMovies: IMovie[];
   children: React.ReactNode;
 }
 
 const MoviesContext = createContext<IMoviesContext>({} as IMoviesContext);
 
-function MoviesProvider({ allMovies, children }: Props) {
-  const [movies, setMovies] = useState<IMovie[]>(allMovies);
-
+function MoviesProvider({ children }: Props) {
   const updateWatchlistStatus = async (
     id: number,
     onWatchlist: boolean
   ): Promise<void> => {
     try {
-      // @ts-ignore
-      const { update_movies_by_pk: movie } = await db.request(
-        UpdateWatchlistStatus,
-        {
-          id,
-          onWatchlist: !onWatchlist,
-        }
-      );
-      const index = movies.findIndex((m) => m.id === movie.id);
-      setMovies([
-        ...movies.slice(0, index),
-        { ...movies[index], ...movie },
-        ...movies.slice(index + 1, movies.length),
-      ]);
+      await db.request(UpdateWatchlistStatus, {
+        id,
+        onWatchlist: !onWatchlist,
+      });
     } catch (e) {}
   };
 
@@ -52,14 +34,11 @@ function MoviesProvider({ allMovies, children }: Props) {
     const { movies } = await db.request(SearchMovies, {
       query: `%${query}%`,
     });
-    setMovies(movies);
   };
 
   return (
     <MoviesContext.Provider
       value={{
-        movies,
-        search: debounce(search, 200),
         updateWatchlistStatus,
       }}
     >

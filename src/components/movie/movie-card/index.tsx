@@ -19,10 +19,8 @@ export function MovieCard({ movie }: IMovieCard) {
   const { updateWatchlistStatus } = useMovies();
 
   async function updateWatchlist() {
-    try {
-      await updateWatchlistStatus(id, onWatchlist);
-      setSaved(!saved);
-    } catch (e) {}
+    await updateWatchlistStatus(id, onWatchlist);
+    setSaved(!onWatchlist);
   }
 
   const src = `${IMG_BASE_URL}${imgSrc}`;

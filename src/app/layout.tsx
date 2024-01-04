@@ -13,6 +13,8 @@ export interface Props {
   children: React.ReactNode;
 }
 
+export const dynamic = "force-static";
+
 async function Layout({ children }: Props) {
   return (
     <html lang="en">

@@ -18,7 +18,7 @@ const MovieFragment = gql`
 
 export const GetMovies = gql`
   query GetMovies {
-    movies(order_by: { vote_average: desc }) {
+    movies(order_by: { title: desc }) {
       ...MovieFragment
     }
   }
@@ -27,7 +27,7 @@ export const GetMovies = gql`
 
 export const GetWatchlist = gql`
   query GetWatchlistMovies {
-    movies(where: { on_watchlist: { _eq: true } }) {
+    movies(where: { on_watchlist: { _eq: true } }, order_by: { title: desc }) {
       ...MovieFragment
     }
   }
@@ -36,7 +36,7 @@ export const GetWatchlist = gql`
 
 export const SearchMovies = gql`
   query SearchMovies($query: String!) {
-    movies(where: { title: { _ilike: $query } }) {
+    movies(where: { title: { _ilike: $query } }, order_by: { title: desc }) {
       ...MovieFragment
     }
   }

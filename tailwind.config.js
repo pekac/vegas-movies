@@ -14,17 +14,6 @@ module.exports = {
       boxShadow: {
         "3xl": "5px 5px 115px -14px black;",
       },
-      colors: {
-        red: {
-          400: "#fe4141",
-        },
-        grey: {
-          100: "#e7e7e7",
-          300: "#9b9b9b",
-          400: "#818181",
-          900: "#1e1b26",
-        },
-      },
       fontFamily: { inter: "Inter" },
       fontSize: {
         xs: "12px",

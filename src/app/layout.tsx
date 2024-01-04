@@ -19,7 +19,7 @@ async function Layout({ children }: Props) {
     <html lang="en">
       <body>
         <Header />
-        <main className="py-8 w-full min-h-screen flex flex-wrap justify-center bg-grey-900">
+        <main className="py-8 w-full min-h-screen flex flex-wrap justify-center bg-gray-800">
           {children}
         </main>
         <FooterNav />

@@ -10,7 +10,20 @@ export interface Props {
 
 function MovieCard({ movie }: Props) {
   return (
-    <div className="w-full max-w-[375px] h-[660px] bg-grey-900 rounded-xs shadow-3xl">
+    <div className="w-[230px] h-[350px] rounded-xs">
+      <MoviePoster
+        id={movie.id}
+        imgSrc={movie.imgSrc as string}
+        isFavorite={movie.isFavorite}
+      />
+    </div>
+  );
+}
+
+export default MovieCard;
+
+/*
+<div className="w-full max-w-[375px] h-[660px] bg-gray-800 rounded-xs shadow-3xl">
       <div className="w-full min-w-[320px] h-full rounded-xs">
         <MoviePoster
           id={movie.id}
@@ -28,7 +41,6 @@ function MovieCard({ movie }: Props) {
         </div>
       </div>
     </div>
-  );
-}
 
-export default MovieCard;
+
+*/

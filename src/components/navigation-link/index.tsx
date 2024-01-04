@@ -17,8 +17,8 @@ function NavLink({ link }: Props) {
     <Link
       href={link.path}
       className={clsx(
-        "my-0 mx-3 md:mx-5 py-2 px-4 text-sm md:text-base text-grey-100 uppercase no-underline",
-        { "font-bold text-grey-900 bg-grey-100 rounded-xs": isActiveClass }
+        "my-0 mx-3 md:mx-5 py-2 px-4 text-sm md:text-base text-gray-100 uppercase no-underline",
+        { "font-bold text-gray-800 bg-gray-100 rounded-xs": isActiveClass }
       )}
     >
       {link.name}

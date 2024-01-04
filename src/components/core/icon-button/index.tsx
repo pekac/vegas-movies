@@ -16,7 +16,7 @@ export function IconButton({
 }: Props) {
   return (
     <button className={clsx("bg-none", classes)} type="button" {...rest}>
-      <img alt={alt} src={src} title={title} />
+      <img alt={alt} src={src} title={title} className="hover:scale-105" />
     </button>
   );
 }

@@ -1,7 +1,6 @@
 import "./globals.css";
 
-import Header from "@components/header";
-import FooterNav from "@components/footer-nav";
+// import { Header } from "@components/core";
 
 export const metadata = {
   title: "Vegas Movies - Entertainment's finest",
@@ -18,11 +17,10 @@ async function Layout({ children }: Props) {
   return (
     <html lang="en">
       <body>
-        <Header />
+        {/* <Header /> */}
         <main className="py-8 w-full min-h-screen flex flex-wrap justify-center bg-gray-800">
           {children}
         </main>
-        <FooterNav />
       </body>
     </html>
   );

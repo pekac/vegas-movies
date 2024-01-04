@@ -34,15 +34,6 @@ export const GetWatchlist = gql`
   ${MovieFragment}
 `;
 
-export const GetFavorites = gql`
-  query GetFavorites {
-    movies(where: { is_favorite: { _eq: true } }) {
-      ...MovieFragment
-    }
-  }
-  ${MovieFragment}
-`;
-
 export const SearchMovies = gql`
   query SearchMovies($query: String!) {
     movies(where: { title: { _like: $query } }) {
@@ -50,18 +41,6 @@ export const SearchMovies = gql`
     }
   }
   ${MovieFragment}
-`;
-
-export const UpdateFavoriteStatus = gql`
-  mutation UpdateFavoriteStatus($id: smallint!, $isFavorite: Boolean!) {
-    update_movies_by_pk(
-      pk_columns: { id: $id }
-      _set: { is_favorite: $isFavorite }
-    ) {
-      id
-      isFavorite: is_favorite
-    }
-  }
 `;
 
 export const UpdateWatchlistStatus = gql`

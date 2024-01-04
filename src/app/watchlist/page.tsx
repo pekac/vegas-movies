@@ -1,4 +1,4 @@
-import MovieList from "@components/movie-list";
+import { MovieList } from "@components/movie";
 
 import { db } from "@lib/graphql";
 

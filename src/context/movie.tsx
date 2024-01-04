@@ -7,16 +7,11 @@ import { debounce } from "@lib/utils";
 
 import { IMovie } from "@models/movie";
 
-import {
-  SearchMovies,
-  UpdateFavoriteStatus,
-  UpdateWatchlistStatus,
-} from "@queries/movies";
+import { SearchMovies, UpdateWatchlistStatus } from "@queries/movies";
 
 export interface IMoviesContext {
   movies: IMovie[];
   search: (query: string) => Promise<void>;
-  updateFavoriteStatus: (id: number, isFavorite: boolean) => Promise<void>;
   updateWatchlistStatus: (id: number, onWatchlist: boolean) => Promise<void>;
 }
 
@@ -29,28 +24,6 @@ const MoviesContext = createContext<IMoviesContext>({} as IMoviesContext);
 
 function MoviesProvider({ allMovies, children }: Props) {
   const [movies, setMovies] = useState<IMovie[]>(allMovies);
-
-  const updateFavoriteStatus = async (
-    id: number,
-    isFavorite: boolean
-  ): Promise<void> => {
-    try {
-      // @ts-ignore
-      const { update_movies_by_pk: movie } = await db.request(
-        UpdateFavoriteStatus,
-        {
-          id,
-          isFavorite: !isFavorite,
-        }
-      );
-      const index = movies.findIndex((m) => m.id === movie.id);
-      setMovies([
-        ...movies.slice(0, index),
-        { ...movies[index], ...movie },
-        ...movies.slice(index + 1, movies.length),
-      ]);
-    } catch (e) {}
-  };
 
   const updateWatchlistStatus = async (
     id: number,
@@ -87,7 +60,6 @@ function MoviesProvider({ allMovies, children }: Props) {
       value={{
         movies,
         search: debounce(search, 200),
-        updateFavoriteStatus,
         updateWatchlistStatus,
       }}
     >

@@ -1,4 +1,4 @@
-export interface Props {
+export interface IMovieContent {
   overview: string;
   rating: number;
   releaseDate: string;
@@ -7,7 +7,12 @@ export interface Props {
 
 const MAX_LENGTH = 217;
 
-function MovieContent({ overview, rating, releaseDate, title }: Props) {
+export function MovieContent({
+  overview,
+  rating,
+  releaseDate,
+  title,
+}: IMovieContent) {
   const summary =
     overview.length < MAX_LENGTH
       ? overview
@@ -32,5 +37,3 @@ function MovieContent({ overview, rating, releaseDate, title }: Props) {
     </>
   );
 }
-
-export default MovieContent;

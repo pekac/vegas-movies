@@ -1,15 +1,14 @@
 "use client";
 
-import MovieCard from "@components/movie-card";
-import NoResults from "@components/no-result";
+import { MovieCard, NoResults } from "@components/movie";
 
 import { IMovie } from "@models/movie";
 
-export interface Props {
+export interface IMovieList {
   movies: IMovie[];
 }
 
-function MovieList({ movies }: Props) {
+export function MovieList({ movies }: IMovieList) {
   if (movies.length === 0) {
     return <NoResults />;
   }
@@ -22,5 +21,3 @@ function MovieList({ movies }: Props) {
     </div>
   );
 }
-
-export default MovieList;

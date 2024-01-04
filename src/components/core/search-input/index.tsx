@@ -2,7 +2,7 @@
 
 import { useMovies } from "@context/movie";
 
-function SearchInput() {
+export function SearchInput() {
   const { search } = useMovies();
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,5 +33,3 @@ function SearchInput() {
     </div>
   );
 }
-
-export default SearchInput;

@@ -14,9 +14,9 @@ export function MovieCard({ movie }: IMovieCard) {
   const { updateWatchlistStatus } = useMovies();
   const { id, imgSrc, onWatchlist, title } = movie;
 
-  const updateWatchlist = () => {
+  function updateWatchlist() {
     updateWatchlistStatus(id, onWatchlist);
-  };
+  }
 
   const src = `${IMG_BASE_URL}${imgSrc}`;
   const bookmarkSrc = onWatchlist

@@ -36,7 +36,7 @@ export const GetWatchlist = gql`
 
 export const SearchMovies = gql`
   query SearchMovies($query: String!) {
-    movies(where: { title: { _like: $query } }) {
+    movies(where: { title: { _ilike: $query } }) {
       ...MovieFragment
     }
   }

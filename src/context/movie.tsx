@@ -4,7 +4,7 @@ import { createContext, useContext } from "react";
 
 import { db } from "@lib/graphql";
 
-import { SearchMovies, UpdateWatchlistStatus } from "@queries/movies";
+import { UpdateWatchlistStatus } from "@queries/movies";
 
 export interface IMoviesContext {
   updateWatchlistStatus: (id: number, onWatchlist: boolean) => Promise<void>;
@@ -17,24 +17,17 @@ export interface Props {
 const MoviesContext = createContext<IMoviesContext>({} as IMoviesContext);
 
 function MoviesProvider({ children }: Props) {
-  const updateWatchlistStatus = async (
+  async function updateWatchlistStatus(
     id: number,
     onWatchlist: boolean
-  ): Promise<void> => {
+  ): Promise<void> {
     try {
       await db.request(UpdateWatchlistStatus, {
         id,
         onWatchlist: !onWatchlist,
       });
     } catch (e) {}
-  };
-
-  const search = async (query: string = ""): Promise<void> => {
-    // @ts-ignore
-    const { movies } = await db.request(SearchMovies, {
-      query: `%${query}%`,
-    });
-  };
+  }
 
   return (
     <MoviesContext.Provider

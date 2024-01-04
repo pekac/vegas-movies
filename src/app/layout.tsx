@@ -1,6 +1,6 @@
 import "./globals.css";
 
-import { Header } from "@components/core";
+import { Header } from "@components/layout";
 
 export const metadata = {
   title: "Vegas Movies - Entertainment's finest",

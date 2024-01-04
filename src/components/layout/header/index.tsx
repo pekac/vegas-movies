@@ -1,6 +1,7 @@
 import Link from "next/link";
 
-import { Logo, SearchInput } from "@components/core";
+import { Logo } from "@components/core";
+import { SearchInput } from "@components/layout";
 
 export function Header() {
   return (

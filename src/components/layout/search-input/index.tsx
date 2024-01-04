@@ -2,9 +2,9 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 
-import { createUrl } from "@lib/utils";
+import { IconButton } from "@components/core";
 
-import { IconButton } from "../icon-button";
+import { createUrl } from "@lib/utils";
 
 export function SearchInput() {
   const router = useRouter();
@@ -33,8 +33,9 @@ export function SearchInput() {
         onSubmit={onSubmit}
       >
         <input
-          name="search"
           className="w-full p-2 h-full text-base rounded-l-xs outline-none"
+          defaultValue={searchParams?.get("q") || ""}
+          name="search"
           placeholder="What are you looking for?"
           type="text"
         />

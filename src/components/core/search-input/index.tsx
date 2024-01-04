@@ -1,29 +1,23 @@
-export function SearchInput() {
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // search(e.target.value);
-  };
+import { IconButton } from "../icon-button";
 
+export function SearchInput() {
   return (
     <div className="flex-1">
-      <div className="my-0 mx-auto px-3 md:px-5 max-w-[500px] h-[40px] flex">
+      <form className="my-0 mx-auto px-3 md:px-5 max-w-[500px] h-[40px] flex">
         <input
-          type="text"
-          className="w-full p-2 h-full text-base text-red-400 rounded-l-xs border-4 border-solid border-red-400 outline-none"
+          className="w-full p-2 h-full text-base rounded-l-xs outline-none"
           placeholder="What are you looking for?"
+          type="text"
           // onChange={onChange}
         />
-        <button
+        <IconButton
+          alt="Search movies btn"
+          classes="bg-white text-center text-white rounded-r-xs border-1 border-solid"
+          src="/icons/search.svg"
+          title="Search movies"
           type="submit"
-          className="text-center text-white rounded-r-xs bg-red-400 border-1 border-solid border-red-400"
-        >
-          <img
-            className="h-[36px] w-[38px]"
-            title="Search movies"
-            alt="Search movies btn"
-            src="/icons/search.svg"
-          />
-        </button>
-      </div>
+        />
+      </form>
     </div>
   );
 }

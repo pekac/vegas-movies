@@ -1,46 +1,20 @@
 import MovieActions from "../movie-actions";
-import MovieContent from "../movie-content";
-import MoviePoster from "../movie-poster";
 
 import { IMovie } from "@models/movie";
+
+import { IMG_BASE_URL } from "@constants/api";
 
 export interface Props {
   movie: IMovie;
 }
 
 function MovieCard({ movie }: Props) {
+  const src = `${IMG_BASE_URL}${movie.imgSrc}`;
   return (
-    <div className="w-[230px] h-[350px] rounded-xs">
-      <MoviePoster
-        id={movie.id}
-        imgSrc={movie.imgSrc as string}
-        isFavorite={movie.isFavorite}
-      />
+    <div className="w-[230px] h-[350px] rounded-xs transition-transform transform-gpu hover:scale-105 hover:cursor-pointer">
+      <img src={src} alt={movie.title} title={movie.title} />
     </div>
   );
 }
 
 export default MovieCard;
-
-/*
-<div className="w-full max-w-[375px] h-[660px] bg-gray-800 rounded-xs shadow-3xl">
-      <div className="w-full min-w-[320px] h-full rounded-xs">
-        <MoviePoster
-          id={movie.id}
-          imgSrc={movie.imgSrc as string}
-          isFavorite={movie.isFavorite}
-        />
-        <div className="px-3">
-          <MovieContent
-            overview={movie.overview}
-            rating={movie.rating}
-            releaseDate={movie.releaseDate}
-            title={movie.title}
-          />
-          <MovieActions id={movie.id} onWatchlist={movie.onWatchlist} />
-        </div>
-      </div>
-    </div>
-
-
-*/

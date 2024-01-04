@@ -1,5 +1,3 @@
-"use client";
-
 import { MovieCard, NoResults } from "@components/movie";
 
 import MoviesProvider from "@context/movie";

@@ -1,3 +1,5 @@
+"use client";
+
 import { IMG_BASE_URL } from "@constants/api";
 
 import { IconButton } from "@components/core";
@@ -5,21 +7,26 @@ import { IconButton } from "@components/core";
 import { useMovies } from "@context/movie";
 
 import { IMovie } from "@models/movie";
+import { useState } from "react";
 
 export interface IMovieCard {
   movie: IMovie;
 }
 
 export function MovieCard({ movie }: IMovieCard) {
-  const { updateWatchlistStatus } = useMovies();
   const { id, imgSrc, onWatchlist, title } = movie;
+  const [saved, setSaved] = useState<boolean>(onWatchlist);
+  const { updateWatchlistStatus } = useMovies();
 
-  function updateWatchlist() {
-    updateWatchlistStatus(id, onWatchlist);
+  async function updateWatchlist() {
+    try {
+      await updateWatchlistStatus(id, onWatchlist);
+      setSaved(!saved);
+    } catch (e) {}
   }
 
   const src = `${IMG_BASE_URL}${imgSrc}`;
-  const bookmarkSrc = onWatchlist
+  const bookmarkSrc = saved
     ? "/icons/bookmark-added.svg"
     : "/icons/bookmark.svg";
 

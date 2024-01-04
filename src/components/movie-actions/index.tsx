@@ -1,5 +1,5 @@
-import WatchLaterBtn from "@/app/components/watch-later-btn";
-import TrailerBtn from "@/app/components/trailer-btn";
+import WatchLaterBtn from "@components/watch-later-btn";
+import TrailerBtn from "@components/trailer-btn";
 
 export interface Props {
   id: number;

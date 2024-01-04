@@ -5,7 +5,7 @@ export function Logo() {
     <Link href="/">
       <img
         className="h-[45px] md:h-[55px]"
-        src="/icons/logo.png"
+        src="/icons/logo.svg"
         alt="Vegas Movies"
         title="Vegas Movies"
       />

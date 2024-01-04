@@ -1,12 +1,6 @@
-"use client";
-
-import { useMovies } from "@context/movie";
-
 export function SearchInput() {
-  const { search } = useMovies();
-
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    search(e.target.value);
+    // search(e.target.value);
   };
 
   return (
@@ -16,7 +10,7 @@ export function SearchInput() {
           type="text"
           className="w-full p-2 h-full text-base text-red-400 rounded-l-xs border-4 border-solid border-red-400 outline-none"
           placeholder="What are you looking for?"
-          onChange={onChange}
+          // onChange={onChange}
         />
         <button
           type="submit"

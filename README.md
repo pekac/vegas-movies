@@ -29,5 +29,3 @@ $ npm run dev
 ## Demo
 
 Check it out here: https://vegas-movies.vercel.app
-
-![](demo.gif)

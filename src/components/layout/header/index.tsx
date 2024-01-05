@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+/* components */
 import { Logo } from "@components/core";
 import { SearchInput } from "@components/layout";
 

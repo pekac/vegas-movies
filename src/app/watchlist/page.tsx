@@ -1,6 +1,6 @@
 import { MovieList } from "@components/movie";
 
-import { db } from "@lib/graphql";
+import { db } from "@lib/db";
 
 import { IMovie } from "@models/movie";
 
@@ -10,9 +10,13 @@ export const dynamic = "force-dynamic";
 export const runtime = "edge";
 
 async function WatchlistPage() {
-  const res = await db({ query: GetWatchlistQuery, tags: ["watchlist"] });
-  const json = await res.json();
-  return <MovieList movies={json.data.movies} />;
+  const { movies } = (await db({
+    query: GetWatchlistQuery,
+    tags: ["watchlist"],
+  })) as {
+    movies: IMovie[];
+  };
+  return <MovieList movies={movies} />;
 }
 
 export default WatchlistPage;

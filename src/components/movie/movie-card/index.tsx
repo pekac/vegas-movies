@@ -1,13 +1,14 @@
 "use client";
 
-import { updateWatchlistStatus } from "@actions/movie";
-
-import { IMG_BASE_URL } from "@constants/api";
-
-import { IconButton } from "@components/core";
-
-import { IMovie } from "@models/movie";
 import { useState } from "react";
+/* actions */
+import { updateWatchlistStatus } from "@actions/movies";
+/* constants */
+import { IMG_BASE_URL } from "@constants/api";
+/* components */
+import { IconButton } from "@components/core";
+/* models */
+import { IMovie } from "@models/movie";
 
 export interface IMovieCard {
   movie: IMovie;

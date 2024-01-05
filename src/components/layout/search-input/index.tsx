@@ -1,9 +1,9 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-
+/* components */
 import { IconButton } from "@components/core";
-
+/* lib */
 import { createUrl } from "@lib/utils";
 
 export function SearchInput() {

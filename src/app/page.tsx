@@ -1,6 +1,6 @@
 import { MovieList } from "@components/movie";
 
-import { db } from "@lib/graphql";
+import { db } from "@lib/db";
 
 import { IMovie } from "@models/movie";
 
@@ -15,16 +15,13 @@ async function IndexPage({
   searchParams?: { [key: string]: string | string[] | undefined };
 }) {
   const { q: searchValue = "" } = searchParams as { [key: string]: string };
-  // @ts-ignore
-  const res = await db({
+  const { movies } = (await db({
     query: SearchMoviesQuery,
     tags: ["home"],
     variables: { query: `%${searchValue}%` },
-  });
-  const json = await res.json();
+  })) as { movies: IMovie[] };
 
-  console.log("PERA::::", json.data.movies);
-  return <MovieList movies={json.data.movies} />;
+  return <MovieList movies={movies} />;
 }
 
 export default IndexPage;

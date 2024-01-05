@@ -1,7 +1,7 @@
 "use client";
-
+/* components */
 import { MovieCard, NoResults } from "@components/movie";
-
+/* models */
 import { IMovie } from "@models/movie";
 
 export interface IMovieList {

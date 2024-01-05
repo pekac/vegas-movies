@@ -2,7 +2,7 @@
 
 import { revalidateTag } from "next/cache";
 
-import { db } from "@lib/graphql";
+import { db } from "@lib/db";
 
 import { UpdateWatchlistMutation } from "@queries/movies";
 

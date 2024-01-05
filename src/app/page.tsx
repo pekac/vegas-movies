@@ -1,9 +1,10 @@
+/* components */
 import { MovieList } from "@components/movie";
-
+/* lib */
 import { db } from "@lib/db";
-
+/* models */
 import { IMovie } from "@models/movie";
-
+/* queries */
 import { SearchMoviesQuery } from "@queries/movies";
 
 export const dynamic = "force-dynamic";

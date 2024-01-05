@@ -1,9 +1,10 @@
+/* components */
 import { MovieList } from "@components/movie";
-
+/* lib */
 import { db } from "@lib/db";
-
+/* models */
 import { IMovie } from "@models/movie";
-
+/* queries */
 import { GetWatchlistQuery } from "@queries/movies";
 
 export const dynamic = "force-dynamic";
@@ -16,6 +17,7 @@ async function WatchlistPage() {
   })) as {
     movies: IMovie[];
   };
+
   return <MovieList movies={movies} />;
 }
 

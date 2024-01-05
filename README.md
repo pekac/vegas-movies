@@ -1,6 +1,6 @@
 ## Movies browsing app
 
-- Migrated to Next13, TS, GQL, Tailwind.
+- Migrated to Next14, TS, GQL, Tailwind.
 - Used Hasura+Neon.
 - Seeded with 20 top rated movies from https://www.themoviedb.org/ API.
 

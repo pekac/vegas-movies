@@ -1,9 +1,9 @@
 "use server";
 
 import { revalidateTag } from "next/cache";
-
+/* lib */
 import { db } from "@lib/db";
-
+/* queries */
 import { UpdateWatchlistMutation } from "@queries/movies";
 
 export async function updateWatchlistStatus(
@@ -22,5 +22,3 @@ export async function updateWatchlistStatus(
     revalidateTag("watchlist");
   } catch (e) {}
 }
-
-export async function search() {}

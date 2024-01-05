@@ -1,6 +1,4 @@
-import { gql } from "graphql-request";
-
-const MovieFragment = gql`
+const MovieFragment = `
   fragment MovieFragment on movies {
     backdrop: backdrop_path
     id
@@ -16,7 +14,7 @@ const MovieFragment = gql`
   }
 `;
 
-export const GetMoviesQuery = gql`
+export const GetMoviesQuery = `
   query GetMovies {
     movies(order_by: { title: desc }) {
       ...MovieFragment
@@ -25,7 +23,7 @@ export const GetMoviesQuery = gql`
   ${MovieFragment}
 `;
 
-export const GetWatchlistQuery = gql`
+export const GetWatchlistQuery = `
   query GetWatchlistMovies {
     movies(where: { on_watchlist: { _eq: true } }, order_by: { title: desc }) {
       ...MovieFragment
@@ -34,7 +32,7 @@ export const GetWatchlistQuery = gql`
   ${MovieFragment}
 `;
 
-export const SearchMoviesQuery = gql`
+export const SearchMoviesQuery = `
   query SearchMovies($query: String!) {
     movies(where: { title: { _ilike: $query } }, order_by: { title: desc }) {
       ...MovieFragment
@@ -43,7 +41,7 @@ export const SearchMoviesQuery = gql`
   ${MovieFragment}
 `;
 
-export const UpdateWatchlistMutation = gql`
+export const UpdateWatchlistMutation = `
   mutation UpdateWatchlistStatus($id: smallint!, $onWatchlist: Boolean!) {
     update_movies_by_pk(
       pk_columns: { id: $id }

@@ -1,6 +1,6 @@
-import { MovieCard, NoResults } from "@components/movie";
+"use client";
 
-import MoviesProvider from "@context/movie";
+import { MovieCard, NoResults } from "@components/movie";
 
 import { IMovie } from "@models/movie";
 
@@ -14,12 +14,10 @@ export function MovieList({ movies }: IMovieList) {
   }
 
   return (
-    <MoviesProvider>
-      <div className="p-5 w-auto grid grid-cols-1 sm2:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-rows-5 gap-6">
-        {movies.map((m) => (
-          <MovieCard key={m.id} movie={m} />
-        ))}
-      </div>
-    </MoviesProvider>
+    <div className="p-5 w-auto grid grid-cols-1 sm2:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-rows-5 gap-6">
+      {movies.map((m) => (
+        <MovieCard key={m.id} movie={m} />
+      ))}
+    </div>
   );
 }

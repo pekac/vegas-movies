@@ -1,10 +1,10 @@
 "use client";
 
+import { updateWatchlistStatus } from "@actions/movie";
+
 import { IMG_BASE_URL } from "@constants/api";
 
 import { IconButton } from "@components/core";
-
-import { useMovies } from "@context/movie";
 
 import { IMovie } from "@models/movie";
 import { useState } from "react";
@@ -16,10 +16,9 @@ export interface IMovieCard {
 export function MovieCard({ movie }: IMovieCard) {
   const { id, imgSrc, onWatchlist, title } = movie;
   const [saved, setSaved] = useState<boolean>(onWatchlist);
-  const { updateWatchlistStatus } = useMovies();
 
-  async function updateWatchlist() {
-    await updateWatchlistStatus(id, onWatchlist);
+  function updateWatchlist() {
+    updateWatchlistStatus(id, onWatchlist);
     setSaved(!onWatchlist);
   }
 

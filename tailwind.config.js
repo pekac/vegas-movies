@@ -43,6 +43,15 @@ module.exports = {
         8: "64px",
         9: "96px",
       },
+      keyframes: {
+        fadeIn: {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
+        },
+      },
+      animation: {
+        "fade-in": "fadeIn 0.5s ease-in-out forwards",
+      },
     },
   },
   plugins: [],

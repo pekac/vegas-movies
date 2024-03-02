@@ -23,21 +23,18 @@ export function MovieCard({ movie }: IMovieCard) {
     setSaved(!onWatchlist);
   }
 
-  const src = `${IMG_BASE_URL}${imgSrc}`;
-  const bookmarkSrc = saved
-    ? "/icons/bookmark-added.svg"
-    : "/icons/bookmark.svg";
-
+  const coverSrc = `${IMG_BASE_URL}${imgSrc}`;
+  const favIcon = saved ? "/icons/favorite-filled.svg" : "/icons/favorite.svg";
   return (
     <div
       className="relative w-[250px] sm2:w-[230px] h-[380px] sm2:h-[350px] 
                  transition-transform transform-gpu animate-fade-in 
                  hover:scale-105 hover:cursor-pointer"
     >
-      <img src={src} alt={title} title={title} />
+      <img src={coverSrc} alt={title} title={title} />
       <IconButton
-        classes="absolute top-[5px] right-0"
-        src={bookmarkSrc}
+        classes="absolute top-[5px] right-[5px]"
+        src={favIcon}
         onClick={updateWatchlist}
       />
     </div>
